@@ -41,11 +41,12 @@ class ApplicationService
         }
 
         $message = "Код: " . $sendSms->code  . " online.creditline.kz";
-//        if ($this->smsService->send($phone, $message)) {
+        if ($this->smsService->send($sendSms->phone, $message)) {
             $application->query()->update(['step' => $request->post('step')]);
-//        }
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
     public function checkCode(Request $request, Application $application)

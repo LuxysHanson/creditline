@@ -5,7 +5,7 @@
         <div class="input_title">@lang('form.step1.input_title')</div>
         <div class="input_input">
             <input class="a_phoneNumber" type="tel" placeholder="+7 (___) ___-__-__" name="phoneNumber"
-                   autocomplete="off" value="{{ $application->phone ?: '' }}">
+                   autocomplete="off" value="{{ $application->phone ?? '' }}">
         </div>
     </div>
     <div class="agreement">
