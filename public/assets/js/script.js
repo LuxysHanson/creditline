@@ -335,6 +335,7 @@ function calc_percent_with_drive(sum,percent) {
 // create tamplate
 var anketaData = {
   applicationId: 0,
+  applicationHash: '',
   phoneNumber: false,
   phoneNumberString: '',
   phoneNumber2: '',

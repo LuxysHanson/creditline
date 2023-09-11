@@ -1,7 +1,7 @@
 // API METHODS
 
 // post phone number get code status
-async function sendGetCode(step, reload = true) {
+async function sendGetCode(step, reload = true, firstStep = false) {
     let cache = cacheJS.get('anketa');
     console.log(cache)
     let phoneNumberCorrect = cache.phoneNumberString;
@@ -23,7 +23,13 @@ async function sendGetCode(step, reload = true) {
             application_id: cache.applicationId
         },
         success: function (a) {
-            if (reload) window.location.reload();
+
+            if (firstStep) {
+                window.location.href = '/form?hash=' + cache.applicationHash
+            } else {
+                if (reload) window.location.reload();
+            }
+
         },
         error: function (error) {
             toastr.error(app.errorMsg)
@@ -161,8 +167,9 @@ $(function () {
                         let data = cacheJS.get('anketa');
                         data.applicationId = response.application.id;
                         data.phoneNumberString = phoneNumber;
+                        data.applicationHash = response.application.id_hash;
                         cacheJS.set('anketa', data, 432000, 'context');
-                        sendGetCode(2);
+                        sendGetCode(2, true, true);
                     } else {
                         toastr.error(app.errorMsg)
                     }
