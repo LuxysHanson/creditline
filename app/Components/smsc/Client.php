@@ -163,7 +163,7 @@ class Client
         $data = array_merge($data, [
             "login" => $this->login,
             "psw" => $this->password,
-            "fmt" => 3,
+            "fmt" => 1,
             "charset" => $this->charset,
         ]);
 

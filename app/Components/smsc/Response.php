@@ -13,14 +13,14 @@ class Response
         $this->content = $response->getBody()->getContents();
         $this->httpCode = $response->getStatusCode();
         $this->reasonPhrase = $response->getReasonPhrase();
-        if (!json_decode($this->content, true) || json_last_error()) {
-            throw new \Exception("Unable to decode JSON: ".json_last_error_msg().".\n Http code: ".$this->httpCode."; Reason phrase: ".$this->reasonPhrase.";");
-        }
+//        if (!json_decode($this->content, true) || json_last_error()) {
+//            throw new \Exception("Unable to decode JSON: ".json_last_error_msg().".\n Http code: ".$this->httpCode."; Reason phrase: ".$this->reasonPhrase.";");
+//        }
     }
 
     public function isOk()
     {
-        return $this->getHttpCode() >= 200 && $this->getHttpCode() <= 299 && $this->getErrorCode() === null;
+        return $this->getHttpCode() >= 200 && $this->getHttpCode() <= 299;
     }
 
     public function getErrorCode()
