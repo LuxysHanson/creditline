@@ -1,25 +1,33 @@
 <div class="container">
     <div class="img"><img src="/assets/images/icons/g2232.svg" alt="g2232-icon"></div>
     <div class="title">@lang('form.step9.title')</div>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc1') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'questionnaire'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon1">
             <div class="pdf_text">@lang('form.step9.doc1_name')</div>
         </div>
     </a>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc2') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'consent'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon2">
             <div class="pdf_text">@lang('form.step9.doc2_name')</div>
         </div>
     </a>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc3') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'agreement'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon3">
             <div class="pdf_text">@lang('form.step9.doc3_name')</div>
         </div>
     </a>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc4') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'information_form'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon4">
             <div class="pdf_text">@lang('form.step9.doc4_name')</div>

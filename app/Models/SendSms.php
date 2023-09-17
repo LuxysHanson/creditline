@@ -18,6 +18,7 @@ class SendSms extends Model
         'application_id',
         'state',
         'code',
+        'step',
         'data'
     ];
 

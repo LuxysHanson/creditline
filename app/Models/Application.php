@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Application extends Model
 {
@@ -26,6 +27,9 @@ class Application extends Model
 
     const CITIZIENSHIP_1 = 0;
     const CITIZIENSHIP_2 = 1;
+
+    const REPAYMENT_TYPE_1 = 1;
+    const REPAYMENT_TYPE_2 = 2;
 
     protected $fillable = [
         'phone',
@@ -50,6 +54,11 @@ class Application extends Model
         'car_images_2' => 'array',
         'data' => 'array',
     ];
+
+    public function sendSms(): HasMany
+    {
+        return $this->hasMany(SendSms::class)->where('state', true);
+    }
 
     public function getFamilyStatuses(): array
     {
@@ -82,6 +91,30 @@ class Application extends Model
             static::CITIZIENSHIP_1 => __('form.step6.citizienship_1'),
             static::CITIZIENSHIP_2 => __('form.step6.citizienship_2'),
         ];
+    }
+
+    public function getRepaymentTypes(): array
+    {
+        return [
+            static::REPAYMENT_TYPE_1 => __('general.block3.repayment_type1'),
+            static::REPAYMENT_TYPE_2 => __('general.block3.repayment_type2'),
+        ];
+    }
+
+    public function getAddress(): string
+    {
+        return ($this->address['locality'] ?? '') .', '. ($this->address['street'] ?? '')
+            .', '. ($this->address['number_home'] ?? '') .', '. ($this->address['apartment'] ?? '');
+    }
+
+    public function getAddress2(): string
+    {
+        $equal_address = $this->address['equal_address'] ?? 'false';
+        if ($equal_address == 'true')
+            return '';
+
+        return ($this->address['locality2'] ?? '') .', '. ($this->address['street2'] ?? '')
+            .', '. ($this->address['number_home2'] ?? '') .', '. ($this->address['apartment2'] ?? '');
     }
 
 }

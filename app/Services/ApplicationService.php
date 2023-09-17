@@ -78,6 +78,7 @@ class ApplicationService
 
         $sendSms = new SendSms();
         $sendSms->phone = $request->post('phone');
+        $sendSms->step = $request->post('step');
         $sendSms->application_id = $request->post('application_id');
         $sendSms->code = Common::randomNumber();
         if (!$sendSms->save()) {

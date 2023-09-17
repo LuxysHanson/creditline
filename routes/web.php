@@ -27,11 +27,11 @@ Route::controller(PageController::class)
         Route::get('/locale/set/{locale}', 'setLocale')->name('locale.set');
     });
 
-Route::prefix('pdf')
+Route::prefix('pdf-generate')
     ->controller(PdfController::class)
     ->name('pdf.')
     ->group(function () {
-        Route::get('/download', 'index')->name('generate');
+        Route::get('/{type}/{hash}', 'index')->name('generate');
     });
 
 Route::prefix('ajax')

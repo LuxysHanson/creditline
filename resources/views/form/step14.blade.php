@@ -3,19 +3,25 @@
         <img src="/assets/images/icons/g2232.svg" alt="g2232-icon">
     </div>
     <div class="title">@lang('form.step14.title')</div>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc5') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'repayment_schedule'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon1">
             <div class="pdf_text">@lang('form.step14.doc5_name')</div>
         </div>
     </a>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc6') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'pledge_ticket'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon2">
             <div class="pdf_text">@lang('form.step14.doc6_name')</div>
         </div>
     </a>
-    <a class="pdf" href="{{ route('pdf.generate', 'type=doc7') }}" target="_blank">
+    <a class="pdf" href="{{ route('pdf.generate', [
+    'hash' => $application->id_hash, 'type' => 'notification'
+]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon3">
             <div class="pdf_text">@lang('form.step14.doc7_name')</div>
