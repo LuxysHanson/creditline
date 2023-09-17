@@ -641,8 +641,14 @@ $(document).ready(()=>{
 })
 // перелючение на след шаг со 3 к 4 ему
 function valid3() {
-  let cache = cacheJS.get('anketa');
-  if(cache.phoneNumber2 !== '' && cache.iin !== 0 && cache.monthlyIncome !== 0 && cache.email !== '' && cache.iban !== '' && cache.sumLoan !== 0 && cache.monthLoan !== 0 && cache.typeLoan !== 0) {
+  if($('.block3 .a_phoneNumber2').val() !== ''
+      && $('.block3 .a_iin').val() !== 0
+      && $('.block3 .monthlyIncome').val() !== 0
+      && $('.block3 .anketEmail').val() !== ''
+      && $('.block3 .a_iban').val() !== ''
+      && $('.block3 .tengeInput').val() !== 0
+      && $('.block3 .monthInput').val() !== 0
+      && $('.block3 .selectPayment input:checked').val() !== 0) {
     $('.block3 .infoBTN').addClass('active');
     return true;
   }
@@ -653,8 +659,14 @@ function valid3() {
 }
 // перелючение на след шаг со 4 к 5 ому
 function valid4() {
-  let cache = cacheJS.get('anketa');
-  if(cache.mark !== '' && cache.model !== '' && cache.madeDate !== 0 && cache.color !== '' && cache.carNumber !== '' && cache.vin !== '' && cache.techPassword !== '' && cache.techPasswordDate !== '') {
+  if($('.block4 .a_marka option:selected').val() !== ''
+      && $('.block4 .a_model option:selected').val() !== ''
+      && $('.block4 .a_yearCar').val() !== 0
+      && $('.block4 .a_colorCar').val() !== ''
+      && $('.block4 .a_numberCar').val() !== ''
+      && $('.block4 .a_vin').val() !== ''
+      && $('.block4 .a_techPassword').val() !== ''
+      && $('.block4 .a_techPasswordDate').val() !== '') {
     $('.block4 .nextScreen').addClass('active');
     return true;
   }
@@ -815,9 +827,17 @@ function valid5() {
 }
 // перелючение на след шаг со 6 к 7 ому
 function valid6() {
-  let cache = cacheJS.get('anketa');
-  console.log(cacheJS.get('anketa'))
-  if(cache.patronymic !== '' && cache.name !== '' && cache.surname !== '' && cache.bornDate !== '' && cache.fStatus !== '' && cache.typeDoc !== '' && cache.numberDoc !== '' && cache.dateDoc !== '' && cache.dateDoc2 !== '' && cache.issuedByDoc !== '' && cache.citizenshipDoc !== '') {
+  if($(".a_patronymic").val() !== ''
+      && $(".a_name").val() !== ''
+      && $(".a_surname").val() !== ''
+      && $(".a_bornDate").val() !== ''
+      && $(".a_fStatus option:selected").val() !== ''
+      && $(".a_typeDoc option:selected").val() !== ''
+      && $(".a_numberDoc").val() !== ''
+      && $(".a_dateDoc").val() !== ''
+      && $(".a_dateDoc2").val() !== ''
+      && $(".a_issuedByDoc option:selected").val() !== ''
+      && $(".a_citizenshipDoc option:selected").val() !== '') {
     $('.block6 .nextAddress').addClass('active');
     return true;
   }
@@ -924,10 +944,9 @@ $(document).ready(()=>{
   })
 })
 function valid7() {
-  let cache = cacheJS.get('anketa');
   console.log($('#equalAddress')[0].checked)
   if($('#equalAddress')[0].checked) {
-    if(cache.locality !== '' && cache.street !== '' && cache.numberHome !== '') {
+    if($(".a_locality").val() !== '' && $(".a_street").val() !== '' && $(".a_numberHome").val() !== '') {
       $('.block7 .nextApplication').addClass('active');
       return true;
     }
@@ -937,7 +956,12 @@ function valid7() {
     }
   }
   else {
-    if(cache.locality !== '' && cache.street !== '' && cache.numberHome !== '' && cache.locality2 !== '' && cache.street2 !== '' && cache.numberHome2 !== '') {
+    if($(".a_locality").val() !== ''
+        && $(".a_street").val() !== ''
+        && $(".a_numberHome").val() !== ''
+        && $(".a_locality2").val() !== ''
+        && $(".a_street2").val() !== ''
+        && $(".a_numberHome2").val() !== '') {
       $('.block7 .nextApplication').addClass('active');
       return true;
     }
@@ -950,7 +974,6 @@ function valid7() {
 // перелючение на след шаг со 7 к 8 ому
 $(document).ready(()=>{
   $('#equalAddress').on('click', (e)=>{
-    let getCache = cacheJS.get('anketa');
     if($(e.currentTarget)[0].checked) {
       $('.block7 .box').toggleClass('active');
       valid7()

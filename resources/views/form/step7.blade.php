@@ -34,14 +34,15 @@
         <img class="info" src="/assets/images/icons/question.svg" alt="question-icon">
         <div class="absolute">@lang('general.block3.gps_desc')</div>
     </div>
+    @php($equal_address = $application->address['equal_address'] ?? 'false')
     <div class="select2">
         <div class="select2_row">
             <input type="checkbox" name="equalAddress" id="equalAddress" value="1"
-                @if(isset($application->address['locality2'])) checked @endif>
+                @if($equal_address == 'true') checked @endif>
             <label for="equalAddress">@lang('form.step7.equal_address')</label>
         </div>
     </div>
-    <div class="box active">
+    <div class="box {{ $equal_address == 'true' ? '' : 'active' }}">
         <div class="input">
             <div class="input_title">@lang('form.step7.locality')</div>
             <div class="input_input">

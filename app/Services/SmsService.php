@@ -8,12 +8,17 @@ use App\Helpers\Common;
 class SmsService
 {
 
-    public function send($phone, $message)
+    public function sendSMSMessage($phone, $message)
+    {
+        return env('APP_DEBUG') ?: $this->send($phone, $message);
+    }
+
+    protected function send($phone, $message)
     {
         $phone = Common::getPhone($phone);
 
         try {
-            $result = (new Client())->send_sms($phone, $message);
+            $result = (new Client())->send_sms($phone, $message, 1);
             if ($result->isOk()) {
                 // сообщение отправлено
                 return true;

@@ -12,6 +12,7 @@ class Application extends Model
     const STATUS_NEW = 0;
     const STATUS_CONFIRMED = 1;
     const STATUS_NOT_CONFIRMED = 2;
+    const STATUS_BLOCKED = -1;
 
     const FAMILY_STATUS_1 = 0;
     const FAMILY_STATUS_2 = 1;
@@ -35,7 +36,7 @@ class Application extends Model
         'address',
         'car_images_1',
         'car_images_2',
-        'photo_car',
+        'data',
         'status'
     ];
 
@@ -47,7 +48,7 @@ class Application extends Model
         'address' => 'array',
         'car_images_1' => 'array',
         'car_images_2' => 'array',
-        'photo_car' => 'array',
+        'data' => 'array',
     ];
 
     public function getFamilyStatuses(): array

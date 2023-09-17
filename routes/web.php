@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\PageBlockController;
 use App\Http\Controllers\PageController;
@@ -62,4 +63,8 @@ Route::prefix('ajax')
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::post('/page-blocks/delete-media',[PageBlockController::class, 'removeMedia'])->name('voyager.page-blocks.media-remove');
+    Route::post('/applications/{id}/reject',[ApplicationController::class, 'reject'])->name('voyager.application.reject');
+    Route::post('/applications/{id}/accept',[ApplicationController::class, 'accept'])->name('voyager.application.accept');
+    Route::get('/applications/{id}/block',[ApplicationController::class, 'block'])->name('voyager.application.block');
+    Route::get('/applications/{id}/unblock',[ApplicationController::class, 'unblock'])->name('voyager.application.unblock');
 });

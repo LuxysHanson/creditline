@@ -97,4 +97,22 @@ class Common
         return (int)$res;
     }
 
+    public static function compareTimeWithCurrent($date)
+    {
+        $nowTime = now('Asia/Almaty')->format('Y-m-d H:i:s');
+        $sendTime = Carbon::make($date)
+            ->addSeconds(119)
+            ->timezone('Asia/Almaty')->format('Y-m-d H:i:s');
+        return Carbon::make($sendTime)->getTimestamp() >= Carbon::make($nowTime)->getTimestamp();
+    }
+
+    public static function generateLink($application, $step)
+    {
+        $link = route('form', 'hash='. $application->id_hash);
+        if ($application->step > $step) {
+            return $link . '&stepTo='. $step;
+        }
+        return $link;
+    }
+
 }

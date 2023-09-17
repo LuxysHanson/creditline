@@ -19,7 +19,7 @@ class AjaxController extends Controller
     # Форма отправки заявки
     public function createApplication(Request $request)
     {
-        $application = $this->appService->create($request->post('phone'));
+        $application = $this->appService->create($request);
         if (!$application) {
             return response()->json(['status' => 'error'], 500);
         }
@@ -60,9 +60,4 @@ class AjaxController extends Controller
         return response()->json(['status' => 'success']);
     }
 
-    # Обработка фоток
-    public function photoProcess(Request $request)
-    {
-
-    }
 }

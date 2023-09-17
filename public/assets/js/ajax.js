@@ -1,5 +1,24 @@
 // API METHODS
 
+function setAttr(prmName,val, href = ''){
+    var res = '';
+    var _href = (href !== ' ') ? window.location.href : href;
+    var d = _href.split("#")[0].split("?");
+    var base = d[0];
+    var query = d[1];
+    if(query) {
+        var params = query.split("&");
+        for(var i = 0; i < params.length; i++) {
+            var keyval = params[i].split("=");
+            if(keyval[0] != prmName) {
+                res += params[i] + '&';
+            }
+        }
+    }
+    res += prmName + '=' + val;
+    return base + '?' + res;
+}
+
 // post phone number get code status
 async function sendGetCode(step, reload = true, firstStep = false) {
     let cache = cacheJS.get('anketa');
@@ -14,7 +33,9 @@ async function sendGetCode(step, reload = true, firstStep = false) {
     phoneNumberCorrect = phoneNumberCorrect.split('-');
     phoneNumberCorrect = phoneNumberCorrect[0] + phoneNumberCorrect[1] + phoneNumberCorrect[2];
     $.ajax({
-        headers: {'X-CSRF-TOKEN': app.token},
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         url: '/ajax/application/send-sms',
         type: 'POST',
         data: {
@@ -27,7 +48,7 @@ async function sendGetCode(step, reload = true, firstStep = false) {
             if (firstStep) {
                 window.location.href = '/form?hash=' + cache.applicationHash
             } else {
-                if (reload) window.location.reload();
+                if (reload) window.location.href = setAttr('stepTo', '')
             }
 
         },
@@ -43,7 +64,9 @@ async function sendValidCode(type, step, id) {
     validCode = validCode.split('-');
     validCode = validCode[0] + validCode[1];
     let ajax = $.ajax({
-        headers: {'X-CSRF-TOKEN': app.token},
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         url: '/ajax/application/check-code',
         type: 'POST',
         data: {
@@ -62,25 +85,6 @@ async function sendValidCode(type, step, id) {
 }
 
 $(function () {
-
-    function setAttr(prmName,val, href = ''){
-        var res = '';
-        var _href = (href !== '') ? location.href : href;
-        var d = _href.split("#")[0].split("?");
-        var base = d[0];
-        var query = d[1];
-        if(query) {
-            var params = query.split("&");
-            for(var i = 0; i < params.length; i++) {
-                var keyval = params[i].split("=");
-                if(keyval[0] != prmName) {
-                    res += params[i] + '&';
-                }
-            }
-        }
-        res += prmName + '=' + val;
-        return base + '?' + res;
-    }
 
     // Language switch
     $(".lang_link").on('click', function (e) {
@@ -117,7 +121,9 @@ $(function () {
                 e.preventDefault();
                 let formData = new FormData(form[0]);
                 $.ajax({
-                    headers: {'X-CSRF-TOKEN': app.token},
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     url: form.attr('action'),
                     type: form.attr('method'),
                     data: formData,
@@ -158,18 +164,24 @@ $(function () {
         var phoneNumber = $(".block1 .a_phoneNumber").val();
         if ($(this).hasClass('active')) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/create",
                 type: "POST",
                 data: {phone: phoneNumber},
                 success: function(response){
                     if (response.status === 'success') {
-                        let data = cacheJS.get('anketa');
-                        data.applicationId = response.application.id;
-                        data.phoneNumberString = phoneNumber;
-                        data.applicationHash = response.application.id_hash;
-                        cacheJS.set('anketa', data, 432000, 'context');
-                        sendGetCode(2, true, true);
+                        if (response.application.step === 1) {
+                            let data = cacheJS.get('anketa');
+                            data.applicationId = response.application.id;
+                            data.phoneNumberString = phoneNumber;
+                            data.applicationHash = response.application.id_hash;
+                            cacheJS.set('anketa', data, 432000, 'context');
+                            sendGetCode(2, true, true);
+                        } else {
+                            window.location.href = '/form?hash=' + response.application.id_hash;
+                        }
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -197,8 +209,7 @@ $(function () {
                     cacheJS.set('anketa', cache, 432000, 'context');
                 }
                 if (cacheJS.get('anketa').validate) {
-                    window.location.reload()
-                    // renderCalc()
+                    window.location.href = setAttr('stepTo', '')
                 }
             });
         }
@@ -210,7 +221,9 @@ $(function () {
         var that = $(this);
         if(valid3()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -235,7 +248,7 @@ $(function () {
                         cache.mark = $('.a_marka').next().text();
                         cache.model = $('.a_model').next().text();
                         cacheJS.set('anketa', cache, 432000, 'context');
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -254,7 +267,9 @@ $(function () {
         var that = $(this);
         if(valid4()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -274,7 +289,7 @@ $(function () {
                 },
                 success: function(response){
                     if (response.status === 'success') {
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -293,7 +308,9 @@ $(function () {
         let that = $(this);
         if(valid5()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -318,7 +335,7 @@ $(function () {
                         cache.issuedByDoc = $('.a_issuedByDoc').next().text();
                         cache.citizenshipDoc = $('.a_citizenshipDoc').next().text();
                         cacheJS.set('anketa', cache, 432000, 'context');
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -337,7 +354,9 @@ $(function () {
         let that = $(this);
         if(valid6()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -360,7 +379,7 @@ $(function () {
                 },
                 success: function(response){
                     if (response.status === 'success') {
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -379,7 +398,9 @@ $(function () {
         let that = $(this);
         if(valid7()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -391,7 +412,7 @@ $(function () {
                         street: $(".a_street").val(),
                         number_home: $(".a_numberHome").val(),
                         apartment: $(".a_numberKv").val(),
-                        equal_address: $(".equalAddress").val(),
+                        equal_address: !!$('#equalAddress')[0].checked,
                         locality2: $(".a_locality2").val(),
                         street2: $(".a_street2").val(),
                         number_home2: $(".a_numberHome2").val(),
@@ -400,7 +421,7 @@ $(function () {
                 },
                 success: function(response){
                     if (response.status === 'success') {
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -438,7 +459,7 @@ $(function () {
                 cacheJS.set('anketa', cache, 432000, 'context');
             }
             if(cacheJS.get('anketa').validate2) {
-                window.location.reload()
+                window.location.href = setAttr('stepTo', '')
             }
         });
     })
@@ -449,7 +470,9 @@ $(function () {
         var that = $(this);
         if(valid10()) {
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -463,7 +486,7 @@ $(function () {
                 },
                 success: function(response){
                     if (response.status === 'success') {
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -481,7 +504,9 @@ $(function () {
         e.preventDefault();
         let that = $(this);
         $.ajax({
-            headers: {'X-CSRF-TOKEN': app.token},
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             url: "/ajax/application/form-data",
             type: "POST",
             data: {
@@ -490,7 +515,7 @@ $(function () {
             },
             success: function(response){
                 if (response.status === 'success') {
-                    window.location.reload()
+                    window.location.href = setAttr('stepTo', '')
                 } else {
                     toastr.error(app.errorMsg)
                 }
@@ -507,14 +532,10 @@ $(function () {
         e.preventDefault();
         let that = $(this);
         if(valid12()) {
-            // setTimeout(()=>{
-            //     $('.block13').toggleClass('active');
-            //     $('.block14').toggleClass('active');
-            //     timerAgain3()
-            // }, 1000)
-
             $.ajax({
-                headers: {'X-CSRF-TOKEN': app.token},
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/ajax/application/form-data",
                 type: "POST",
                 data: {
@@ -532,7 +553,7 @@ $(function () {
                 },
                 success: function(response){
                     if (response.status === 'success') {
-                        window.location.reload()
+                        window.location.href = setAttr('stepTo', '')
                     } else {
                         toastr.error(app.errorMsg)
                     }
@@ -561,7 +582,7 @@ $(function () {
                     cacheJS.set('anketa', cache, 432000, 'context');
                 }
                 if(cacheJS.get('anketa').validate3) {
-                    window.location.reload();
+                    window.location.href = setAttr('stepTo', '')
                 }
             });
         }
