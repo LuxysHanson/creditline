@@ -49,80 +49,80 @@
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; line-height:normal;"><span style="">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt; line-height:normal;"><span style="">4. Являетесь ли Вы публичным должностным лицом и/или причастны к публичному должностному лицу, его супруге (супругу) и близким родственникам: ДА</span><span style="">&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-2.png" width="26" height="22" alt=""><span style="">&nbsp;&nbsp;</span><span style="">НЕТ&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-3.png" width="25" height="23" alt=""></p>
     <p style="margin-top:0pt; margin-bottom:0pt; line-height:normal;"><span style="">&nbsp;</span></p>
-    <table cellspacing="0" cellpadding="0" style="width:468.75pt; border-collapse:collapse;">
+    <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
         <tbody>
         <tr>
-            <td colspan="4" style="width:450.95pt; border-style:solid; border-width:0.75pt 1pt 1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
+            <td colspan="4" style="border-style:solid; border-width:0.75pt 1pt 1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Порядок осуществления бенефициарным собственником контроля над клиентом субъекта финансового мониторинга *</span></p>
             </td>
         </tr>
         <tr style="height:37.8pt;">
-            <td style="width:15pt; border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">1.</span></p>
             </td>
-            <td style="width:249.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Более 25% долей участия в уставном капитале/владение более 25% размещенных и голосующих акций</span></p>
             </td>
-            <td style="width:68.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Да</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-4.png" width="27" height="22" alt=""></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Нет</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-5.png" width="26" height="24" alt=""></p>
             </td>
-            <td style="width:67.85pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>
         <tr>
-            <td rowspan="2" style="width:30.8pt; border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; vertical-align:middle;">
+            <td rowspan="2" style="border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; vertical-align:middle;">
                 <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:11pt;">&nbsp;</p>
             </td>
-            <td style="width:249.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Осуществление контроля над клиентом</span></p>
             </td>
-            <td style="width:68.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Да</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-4.png" width="27" height="22" alt=""></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Нет</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-6.png" width="27" height="25" alt=""></p>
             </td>
-            <td style="width:67.85pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>
         <tr>
-            <td style="width:249.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Лицо, в интересах которого совершаются операции с деньгами и (или) иным имуществом</span></p>
             </td>
-            <td style="width:68.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Да</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-4.png" width="27" height="22" alt=""></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Нет</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-7.png" width="28" height="26" alt=""></p>
             </td>
-            <td style="width:67.85pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>
         <tr>
-            <td colspan="4" style="width:450.95pt; border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
+            <td colspan="4" style="border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><span style="">&nbsp;</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><span style="">Данные бенефициарного собственника клиента субъекта финансового мониторинга*</span></p>
             </td>
         </tr>
         <tr>
-            <td style="width:15pt; border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><span style="">2.</span></p>
             </td>
-            <td style="width:249.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Фамилия</span></p>
             </td>
-            <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td colspan="2" style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>
         <tr>
-            <td style="width:15pt; border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-left-style:solid; border-left-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:7.9pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:11pt;"><span style="">3.</span></p>
             </td>
-            <td style="width:249.35pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Имя</span></p>
             </td>
-            <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
+            <td colspan="2" style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>

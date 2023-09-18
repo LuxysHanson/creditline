@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -115,6 +116,31 @@ class Application extends Model
 
         return ($this->address['locality2'] ?? '') .', '. ($this->address['street2'] ?? '')
             .', '. ($this->address['number_home2'] ?? '') .', '. ($this->address['apartment2'] ?? '');
+    }
+
+    public function buildSchedule(): array
+    {
+
+        $percent = 3.72;
+        $month = intval(str_replace(' ', '', $this->loan['deadline'] ?? ''));
+        $calc = intval(str_replace(' ', '', $this->loan['monthly_pay'] ?? ''));
+        $dolg = $calc * $month;
+        $dolg2 = $calc * $month;
+
+        $data = [];
+        for ($i = 0; $i <= $month; $i++) {
+            $data['elements'][$i] = [
+                'date' => Carbon::now('Asia/Almaty')->addMonths($i+1)->format('d.m.Y'),
+                'monthly_pay' => $calc .' ₸',
+                'percent' => round($percent/$month, 5) .'%',
+                'summa' => $dolg .' ₸',
+                'balance' => $dolg2 .' ₸'
+            ];
+            $dolg2 -= $calc;
+        }
+
+        $data['total'] = $dolg.' ₸';
+        return $data;
     }
 
 }

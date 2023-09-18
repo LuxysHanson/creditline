@@ -239,6 +239,7 @@ $(function () {
                         additional_phone: $('.block3 .a_phoneNumber2').val(),
                         email: $('.block3 .anketEmail').val(),
                         iban: $('.block3 .a_iban').val(),
+                        monthly_pay: $('.block3 .monthlyPay_sum').html()
                     }
                 },
                 success: function(response){

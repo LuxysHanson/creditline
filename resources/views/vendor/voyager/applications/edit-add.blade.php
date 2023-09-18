@@ -136,6 +136,11 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="a_monthly_pay">Ежемесячный платеж</label>
+                                        <input id="a_monthly_pay" type="text" name="loan[monthly_pay]" class="form-control" value="{{ $dataTypeContent->loan['monthly_pay'] ?? '' }}">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="a_payment">Ежемесячный доход</label>
                                         <input id="a_payment" type="text" name="loan[payment]" class="form-control" value="{{ $dataTypeContent->loan['payment'] ?? '' }}">
                                     </div>
