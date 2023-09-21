@@ -10,7 +10,8 @@ class SmsService
 
     public function sendSMSMessage($phone, $message)
     {
-        return env('APP_DEBUG') ?: $this->send($phone, $message);
+        $debug = env('APP_ENV') == 'local' && env('APP_DEBUG');
+        return $debug ?: $this->send($phone, $message);
     }
 
     protected function send($phone, $message)

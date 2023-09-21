@@ -228,7 +228,7 @@
 }
 
 .getPage .block1 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -312,7 +312,7 @@
 }
 
 .getPage .block2 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -484,7 +484,7 @@
 }
 
 .getPage .block3 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -717,7 +717,7 @@
 }
 
 .getPage .block4 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -1079,7 +1079,7 @@
 }
 
 .getPage .block5 .input .filer input[type=file]:valid + .label::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -1135,7 +1135,7 @@
 }
 
 .getPage .block5 .input .filer.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -1226,7 +1226,7 @@
 }
 
 .getPage .block6 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -1437,7 +1437,7 @@
 }
 
 .getPage .block7 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -1958,7 +1958,7 @@
 }
 
 .getPage .block9 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -2200,7 +2200,7 @@
 }
 
 .getPage .block10 .input .filer input[type=file]:valid + .label::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -2256,7 +2256,7 @@
 }
 
 .getPage .block10 .input .filer.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -2526,7 +2526,7 @@
 }
 
 .getPage .block12 .input .filer input[type=file]:valid + .label::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -2582,7 +2582,7 @@
 }
 
 .getPage .block12 .input .filer.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;
@@ -2790,7 +2790,7 @@
 }
 
 .getPage .block14 .input_input.active::after {
-  content: url(../images/icons/active_input.svg);
+  content: url(./../images/icons/active_input.svg);
   width: 25px;
   height: 25px;
   position: absolute;

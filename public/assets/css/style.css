@@ -2,42 +2,42 @@
   font-family: "Montserrat";
   font-weight: 300;
   font-display: swap;
-  src: url(../fonts/Montserrat-Light.otf) format("opentype");
+  src: url(./../fonts/Montserrat-Light.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 400;
   font-display: swap;
-  src: url(../fonts/Montserrat-Regular.otf) format("opentype");
+  src: url(./../fonts/Montserrat-Regular.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 500;
   font-display: swap;
-  src: url(../fonts/Montserrat-SemiBold.otf) format("opentype");
+  src: url(./../fonts/Montserrat-SemiBold.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 600;
   font-display: swap;
-  src: url(../fonts/Montserrat-Bold.otf) format("opentype");
+  src: url(./../fonts/Montserrat-Bold.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 700;
   font-display: swap;
-  src: url(../fonts/Montserrat-Black.otf) format("opentype");
+  src: url(./../fonts/Montserrat-Black.otf) format("opentype");
 }
 
 @font-face {
   font-family: "Montserrat";
   font-weight: 800;
   font-display: swap;
-  src: url(../fonts/Montserrat-ExtraBold.otf) format("opentype");
+  src: url(./../fonts/Montserrat-ExtraBold.otf) format("opentype");
 }
 
 * {
@@ -848,6 +848,8 @@ img {
   font-style: normal;
   font-weight: 500;
   line-height: 137.5%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .header_menuBtn {
@@ -2479,6 +2481,21 @@ img {
 }
 
 @media (min-width: 1200px) {
+  .btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  .btn_green:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  .btn_red:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
   .header_logo {
     width: 212px;
     height: 34px;
@@ -2497,6 +2514,11 @@ img {
     display: flex;
   }
 
+  .header_bottom .links .link:hover {
+    cursor: pointer;
+    color: var(--col-1);
+  }
+
   .mainTitle {
     font-size: 40px;
   }
@@ -2512,7 +2534,10 @@ img {
   }
 
   .mainPage .block1_row:nth-child(2) {
-    width: 350px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    grid-gap: 20px;
   }
 
   .mainPage .block1_row:nth-child(3) {
