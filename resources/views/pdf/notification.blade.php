@@ -89,7 +89,7 @@
                                         <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;">ИИН <span style="">{{ $application->loan['iin'] ?? '' }}</span></p>
                                         <p style="margin-top:4.7pt; margin-right:28.65pt; margin-bottom:0pt; text-align:center; line-height:105%; font-size:12pt;">Подписано Заемщиком посредством многофакторной аутентификации</p>
                                         @php($sendSms = $application->sendSms->where('step', 14)->first() ?? null)
-                                        <p style="margin-top:0pt; margin-right:28.65pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Подпись (SMS код): <span style="">{{ $sendSms->code }}</span></p>
+                                        <p style="margin-top:0pt; margin-right:28.65pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Подпись (SMS код): <span style="">{{ $sendSms->code ?? '' }}</span></p>
                                     </td>
                                 </tr>
                                 </tbody>

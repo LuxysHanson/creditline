@@ -189,7 +189,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">&nbsp;</span></p>
                 @php($sendSms = $application->sendSms->where('step', 14)->first() ?? null)
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Қарыз алушы көп факторлы аутентификация арқылы қол қойды/ Подписано Заемщиком посредством многофакторной аутентификации</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Подпись (SMS код) :&nbsp;</span><span style="">{{ $sendSms->code }}</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Подпись (SMS код) :&nbsp;</span><span style="">{{ $sendSms->code ?? '' }}</span></p>
             </td>
         </tr>
         <tr style="height:0pt;">

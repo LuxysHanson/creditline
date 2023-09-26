@@ -532,6 +532,22 @@
                                                 <button type="button" class="btn btn-danger" onclick="copylink(this)">Скопировать ссылку</button>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'questionnaire'
+]) }}">Заявление-анкеты на предостваление кредита</a>
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'consent'
+]) }}">Согласие субъекта КИ</a>
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'agreement'
+]) }}">Согласие на сбор и обработку персональных данных</a>
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'information_form'
+]) }}">Заявление на соответствие</a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 @endif
@@ -742,6 +758,19 @@
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" disabled value="{{ \App\Helpers\Common::generateLink($dataTypeContent, 14) }}">
                                                 <button type="button" class="btn btn-danger" onclick="copylink(this)">Скопировать ссылку</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'repayment_schedule'
+]) }}">График погашения микрокредита</a>
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'pledge_ticket'
+]) }}">Залоговый билет с правом управления транспортным средством</a>
+                                                <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
+    'hash' => $dataTypeContent->id_hash, 'type' => 'notification'
+]) }}">Уведомление в ГАИ о регистрации залога транспортного средства</a>
                                             </div>
                                         </div>
                                     </div>

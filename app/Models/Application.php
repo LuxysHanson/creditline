@@ -58,7 +58,7 @@ class Application extends Model
 
     public function sendSms(): HasMany
     {
-        return $this->hasMany(SendSms::class)->where('state', true);
+        return $this->hasMany(SendSms::class)->orderByDesc('id');
     }
 
     public function getFamilyStatuses(): array

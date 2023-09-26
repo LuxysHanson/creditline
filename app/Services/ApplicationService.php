@@ -87,7 +87,8 @@ class ApplicationService
 
         $message = "Код: " . $sendSms->code  . " online.creditline.kz";
         if ($this->smsService->sendSMSMessage($sendSms->phone, $message)) {
-            $application->query()->update(['step' => $request->post('step')]);
+            $application->step = $request->post('step');
+            $application->save();
             return true;
         }
 

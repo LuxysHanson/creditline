@@ -91,7 +91,7 @@ class Common
 
         $res = '';
         for ($i = 0; $i < $length; $i++) {
-            $res .= $arr[random_int(0, count($arr) - 1)];
+            $res .= $arr[random_int(0, count($arr) - 1)] ?? 0;
         }
 
         return (int)$res;
@@ -101,7 +101,7 @@ class Common
     {
         $nowTime = now('Asia/Almaty')->format('Y-m-d H:i:s');
         $sendTime = Carbon::make($date)
-            ->addSeconds(119)
+            ->addSeconds(179)
             ->timezone('Asia/Almaty')->format('Y-m-d H:i:s');
         return Carbon::make($sendTime)->getTimestamp() >= Carbon::make($nowTime)->getTimestamp();
     }

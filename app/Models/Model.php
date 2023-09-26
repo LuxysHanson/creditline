@@ -18,6 +18,7 @@ class Model extends BaseModel
 
     protected $fillable = [
         'name',
-        'data'
+        'data',
+        'brand_id'
     ];
 }

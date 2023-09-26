@@ -695,15 +695,14 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:12pt;">Электр.почта <span style="">{{ $application->loan['email'] ?? '' }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:12pt;">&nbsp;</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;">Подписано Заемщиком посредством многофакторной аутентификации</p>
-                <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Подпись (SMS код) : <span style="">{{ $sendSms->code }}</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Подпись (SMS код) : <span style="">{{ $sendSms->code ?? '' }}</span></p>
             </td>
         </tr>
         </tbody>
     </table>
-    @php($sendSms = $application->sendSms->where('step', 14)->first() ?? null)
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">Микрокредитті өтеу әдісімен, сонымен қатар Микрокредиттері беру қағидалары шарттарымен таныстым және келісемін. Кепіл билеттің бір данасын алдым./ С методом погашения Микрокредита, а также условиями Правил предоставления микрокредитов ознакомлен и согласен. Один экземпляр Залогового билета получил.</p>
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Қарыз алушы көп факторлы аутентификацияарқылы қол қойды/ Подписано Заемщиком посредством многофакторной аутентификации</p>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">Қол қою (SMS код) : <span style="">{{ $sendSms->code }}</span>/ Подпись (SMS код) : <span style="">{{ $sendSms->code }}</span></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">Қол қою (SMS код) : <span style="">{{ $sendSms->code ?? '' }}</span>/ Подпись (SMS код) : <span style="">{{ $sendSms->code ?? '' }}</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt;">&nbsp;</p>
     <div style="clear:both;">
         <p style="margin-top:0pt; margin-bottom:0pt;">&nbsp;</p>
