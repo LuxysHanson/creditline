@@ -8,7 +8,6 @@ use App\Models\Blacklist;
 use App\Models\SendSms;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
-use Stevebauman\Location\Facades\Location;
 
 class ApplicationService
 {
@@ -87,8 +86,9 @@ class ApplicationService
 
         $message = "Код: " . $sendSms->code  . " online.creditline.kz";
         if ($this->smsService->sendSMSMessage($sendSms->phone, $message)) {
-            $application->step = $request->post('step');
-            $application->save();
+            $application->query()
+                ->where('id', $request->post('application_id'))
+                ->update(['step' => $request->post('step')]);
             return true;
         }
 
