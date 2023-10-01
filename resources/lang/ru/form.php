@@ -10,7 +10,7 @@ return [
     'step1' => [
         'title' => 'Получите деньги',
         'input_title' => 'Ваш контактный номер',
-        'agreement_text' => 'Даю своё <a href="/files/agreement.pdf" download target="_blank"><b>согласие на хранение и обработку персональных данных</b></a>',
+        'agreement_text' => 'Даю своё <a href="'. ':link' .'"><b>согласие на хранение и обработку персональных данных</b></a>',
     ],
 
     'step2' => [

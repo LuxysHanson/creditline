@@ -21,17 +21,17 @@ class PageController extends Controller
         return parent::callAction($method, $parameters);
     }
 
-    public function home()
+    public function getPage($slug = '/')
     {
 
-        $page = Page::query()->where('slug', 'home')->firstOrFail();
+        $page = Page::query()->where('slug', $slug)->firstOrFail();
         $page = $page->translate(session()->get('locale'));
 
         if ($page->blocks) {
             $this->setPageWithBlocks($page);
         }
 
-        return view('home', compact('page'));
+        return view($page->getModel()->getTemplate(), compact('page'));
     }
 
     public function form(Request $request)

@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PageController::class)
     ->group(function () {
-        Route::get('/', 'home');
         Route::get('/form', 'form')->name('form');
+        Route::get('/{page?}','getPage')->name('pages.get');
         Route::get('/locale/set/{locale}', 'setLocale')->name('locale.set');
     });
 

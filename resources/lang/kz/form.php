@@ -10,7 +10,7 @@ return [
     'step1' => [
         'title' => 'Ақша алыңыз',
         'input_title' => 'Сіздің байланыс нөміріңіз',
-        'agreement_text' => 'Дербес деректерді сақтауға және өңдеуге өзімнің <a href="/files/agreement.pdf" download target="_blank"><b> келісімімді беремін</b></a>',
+        'agreement_text' => 'Дербес деректерді сақтауға және өңдеуге өзімнің <a href="'. ':link' .'"><b> келісімімді беремін</b></a>',
     ],
 
     'step2' => [

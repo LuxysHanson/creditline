@@ -6,7 +6,7 @@
                     <a href="/"><img src="{{ '/storage/'. setting('site.footer_logo') }}" alt="footer-logo"></a>
                 </div>
                 <div class="footer_desc">{!! setting('site.footer_text_'. session()->get('locale')) !!}</div>
-                <div class="footer_link">@lang('general.footer.documents')</div>
+                <a href="{{ route('pages.get', 'documents') }}" class="footer_link">@lang('general.footer.documents')</a>
             </div>
             <div class="items">
                 <div class="item">

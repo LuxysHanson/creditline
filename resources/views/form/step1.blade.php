@@ -10,7 +10,7 @@
     </div>
     <div class="agreement">
         <input type="checkbox" name="agreement" checked>
-        <div class="agreement_text">@lang('form.step1.agreement_text')</div>
+        <div class="agreement_text">@lang('form.step1.agreement_text', ['link' => route('pages.get', 'agreement')])</div>
     </div>
     <div class="btn_row"><a class="btn btn_gray" href="/">@lang('form.back_btn')</a>
         <div class="btn btn_green getCode" data-href="{{ route('form') }}">@lang('form.code_btn')</div>
