@@ -5,7 +5,7 @@
 @section('meta_description', (strlen($page->meta_description) > 1 ? $page->meta_description : ''))
 
 @section('content')
-    <main class="getPage">
+    <main class="mainPage">
         {!! $page->body !!}
     </main>
 @endsection

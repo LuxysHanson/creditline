@@ -27,8 +27,13 @@
                 <div class="max">{{ \App\Helpers\Common::getCostToString($blockData->cost_max) }}</div>
             </div>
         </div>
-        <div class="input">
-            <label>@lang('general.block3.deadline_title')</label>
+
+        @php($type = $application->loan['repayment_type'] ?? 1)
+        <div class="input repaymentSelect">
+            @php($type2 = $type == 1 ? 2 : 1)
+            <label data-title="{{ __('general.block3.deadline_title_'. $type2) }}">
+                @lang('general.block3.deadline_title_'. $type)
+            </label>
             @php($deadline = $application->loan['deadline'] ?? '')
             <input class="monthInput" type="text" value="{{ intval($deadline) ?? intval($blockData->deadline) }}"
                    onkeypress="return AllowOnlyNumbers(event);">
@@ -56,7 +61,6 @@
             </div>
         @endif
         <div class="select selectPayment">
-            @php($type = $application->loan['repayment_type'] ?? 1)
             <div class="title">@lang('general.block3.type_repayment')</div>
             <div class="select_row">
                 <input type="radio" name="repaymentType" id="repaymentType1" value="1"

@@ -234,7 +234,7 @@ $('.allSumRange').change((e)=>{
   renderCalc()
 });
 //radio click
-$('.mainPage .select_row input, .mainPage .select_row label').click(()=>{
+$('.mainPage .select_row label').click(()=>{
   renderCalc()
 })
 function renderCalc() {
@@ -532,15 +532,15 @@ $(document).ready(()=>{
   if($('.getPage').length !== 0) {
     renderCache()
   }
-  if($('.block3').length !== 0) {
+  if($('.getPage .block3').length !== 0) {
     renderCalc()
   }
-  if ($('.block6').length !== 0) {
+  if ($('.getPage .block6').length !== 0) {
     valid6()
   }
-    if ($('.block7').length !== 0) {
-        valid7()
-    }
+  if ($('.getPage .block7').length !== 0) {
+    valid7()
+  }
 })
 
 // timer 120s
@@ -581,14 +581,14 @@ $(document).ready(() =>{
 })
 // перелючение на след шаг со 2 к 3 ему
 $(document).ready(()=>{
-    if ($('.block1').length) {
+    if ($('.getPage .block1').length) {
         if ($(".a_phoneNumber").val() !== '') {
             $('.block1 .getCode').addClass('active')
         } else {
             $('.block1 .getCode').removeClass('active')
         }
     }
-    if ($('.block2').length) {
+    if ($('.getPage .block2').length) {
         let data = cacheJS.get('anketa');
         data.applicationId = $('.block2 .btn_again').data('id');
         data.phoneNumberString = $('.block2 .btn_again').data('phone');
@@ -596,22 +596,22 @@ $(document).ready(()=>{
         sendGetCode(2, false);
         timerAgain()
     }
-    if ($('.block3').length) {
+    if ($('.getPage .block3').length) {
         valid3()
     }
-    if ($('.block4').length) {
+    if ($('.getPage .block4').length) {
         valid4()
     }
-    if ($('.block5').length) {
+    if ($('.getPage .block5').length) {
         valid5()
     }
-    if ($('.block6').length) {
+    if ($('.getPage .block6').length) {
         valid6()
     }
-    if ($('.block7').length) {
+    if ($('.getPage .block7').length) {
         valid7()
     }
-    if ($('.block9').length) {
+    if ($('.getPage .block9').length) {
         let data = cacheJS.get('anketa');
         data.applicationId = $('.block9 .btn_again2').data('id');
         data.phoneNumberString = $('.block9 .btn_again2').data('phone');
@@ -619,13 +619,13 @@ $(document).ready(()=>{
         sendGetCode(9, false);
         timerAgain(2)
     }
-    if ($('.block10').length) {
+    if ($('.getPage .block10').length) {
         valid10()
     }
-    if ($('.block12').length) {
+    if ($('.getPage .block12').length) {
         valid12()
     }
-    if ($('.block14').length) {
+    if ($('.getPage .block14').length) {
         let data = cacheJS.get('anketa');
         data.applicationId = $('.block14 .btn_again3').data('id');
         data.phoneNumberString = $('.block14 .btn_again3').data('phone');
@@ -1092,7 +1092,7 @@ $('.block14 .btn_again3 .btn2').click(()=>{
     sendGetCode(14)
 });
 //radio click repayment type
-$('.getPage .select_row input, .getPage .select_row label').click(()=>{
+$('.getPage .select_row label').click(()=>{
   renderCalc()
 })
 //select functions

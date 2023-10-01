@@ -21,8 +21,10 @@
                         <div class="max">{{ \App\Helpers\Common::getCostToString($blockData->cost_max) }}</div>
                     </div>
                 </div>
-                <div class="input">
-                    <label>@lang('general.block3.deadline_title')</label>
+                <div class="input repaymentSelect">
+                    <label data-title="{{ __('general.block3.deadline_title_2') }}">
+                        @lang('general.block3.deadline_title_1')
+                    </label>
                     <input class="monthInput" type="text" value="{{ intval($blockData->deadline) }}"
                            onkeypress="return AllowOnlyNumbers(event);">
                 </div>
