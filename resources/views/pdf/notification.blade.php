@@ -20,7 +20,7 @@
     </div>
     <p style="margin-top:0pt; margin-bottom:0pt;"><span style="font-family:'Arial Narrow';">&nbsp;</span></p>
     <p style="margin-top:0pt; margin-bottom:0pt;">Исх. № ______________</p>
-    @php($date = \Carbon\Carbon::make($application->created_at))
+    @php($date = \Carbon\Carbon::now('Asia/Almaty'))
     <p style="margin-top:0pt; margin-bottom:0pt;">От <span style="">{{ $date->day }} {{ \App\Enums\MonthEnum::getInTheGenetiveCase($date->month) }} {{ $date->year }}</span> года</p>
     <p style="margin-top:0pt; margin-left:252pt; margin-bottom:0pt;"><strong>&nbsp;</strong></p>
     <p style="margin-top:0pt; margin-left:252pt; margin-bottom:0pt;"><strong>Начальнику Управления административной полиции&nbsp;</strong></p>

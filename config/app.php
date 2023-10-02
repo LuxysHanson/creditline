@@ -234,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Location' => Stevebauman\Location\Facades\Location::class,
     ],
 
 ];

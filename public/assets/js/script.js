@@ -946,7 +946,7 @@ $(document).ready(()=>{
 function valid7() {
   console.log($('#equalAddress')[0].checked)
   if($('#equalAddress')[0].checked) {
-    if($(".a_locality").val() !== '' && $(".a_street").val() !== '' && $(".a_numberHome").val() !== '') {
+    if($(".a_locality option:selected").val() !== '' && $(".a_street").val() !== '' && $(".a_numberHome").val() !== '') {
       $('.block7 .nextApplication').addClass('active');
       return true;
     }
@@ -956,7 +956,7 @@ function valid7() {
     }
   }
   else {
-    if($(".a_locality").val() !== ''
+    if($(".a_locality option:selected").val() !== ''
         && $(".a_street").val() !== ''
         && $(".a_numberHome").val() !== ''
         && $(".a_locality2").val() !== ''

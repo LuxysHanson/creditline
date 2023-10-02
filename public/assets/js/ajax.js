@@ -409,7 +409,7 @@ $(function () {
                     key: that.data('key'),
                     step: that.data('step'),
                     data: {
-                        locality: $(".a_locality").val(),
+                        locality: $(".a_locality option:selected").val(),
                         street: $(".a_street").val(),
                         number_home: $(".a_numberHome").val(),
                         apartment: $(".a_numberKv").val(),

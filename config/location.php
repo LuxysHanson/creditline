@@ -46,23 +46,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Localhost Testing
-    |--------------------------------------------------------------------------
-    |
-    | If your running your website locally and want to test different
-    | IP addresses to see location detection, set 'enabled' to true.
-    |
-    | The testing IP address is a Google host in the United-States.
-    |
-    */
-
-    'testing' => [
-        'ip' => '66.102.0.0',
-        'enabled' => env('LOCATION_TESTING', true),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | MaxMind Configuration
     |--------------------------------------------------------------------------
     |
@@ -78,8 +61,8 @@ return [
     'maxmind' => [
         'web' => [
             'enabled' => false,
-            'user_id' => env('MAXMIND_USER_ID'),
-            'license_key' => env('MAXMIND_LICENSE_KEY'),
+            'user_id' => '',
+            'license_key' => '',
             'options' => ['host' => 'geoip.maxmind.com'],
         ],
 
@@ -104,17 +87,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Kloudend ~ ipapi.co Configuration
+    | Localhost Testing
     |--------------------------------------------------------------------------
     |
-    | The configuration for the Kloudend driver.
+    | If your running your website locally and want to test different
+    | IP addresses to see location detection, set 'enabled' to true.
+    |
+    | The testing IP address is a Google host in the United-States.
     |
     */
 
-//    'kloudend' => [
-//
-//        'token' => env('KLOUDEND_TOKEN'),
-//
-//    ],
+    'testing' => [
+        'enabled' => env('LOCATION_TESTING', false),
+        'ip' => '66.102.0.0',
+    ],
 
 ];

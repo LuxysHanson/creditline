@@ -71,7 +71,7 @@
     <table cellspacing="0" cellpadding="0" style="border:0.75pt solid #000000; border-collapse:collapse;">
         <tbody>
         <tr>
-            @php($date = \Carbon\Carbon::make($application->created_at))
+            @php($date = \Carbon\Carbon::now('Asia/Almaty'))
             <td style=" border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:center; font-size:12pt;"><strong>№</strong><strong><span style="">_____________</span></strong><strong>&nbsp;Кепіл билеті</strong></p>
                 <p style="margin-top:0pt; margin-left:28.35pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">&nbsp;</p>

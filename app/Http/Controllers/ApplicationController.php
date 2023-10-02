@@ -42,7 +42,8 @@ class ApplicationController extends Controller
             ->firstOrFail();
 
         $routeLink = route('form', 'hash='. $application->id_hash);
-        $message = "Вам одобрен микрокредит, перейдите <a href='". $routeLink ."'>по ссылке</a> для подписания Договора. Время подписания с 09:00 - 18:00 текущего дня";
+        $url = filter_var($routeLink, FILTER_VALIDATE_URL);
+        $message = "Вам одобрен микрокредит, перейдите <a href=\"$url\">по ссылке</a> для подписания Договора. Время подписания с 09:00 - 18:00 текущего дня";
         if ($this->smsService->sendSMSMessage($application->phone, $message)) {
             $application->status = Application::STATUS_CONFIRMED;
             $application->step = intval($request->post('step'));

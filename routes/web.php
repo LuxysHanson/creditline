@@ -20,6 +20,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Admin Panel - routes
+ */
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+    Route::post('/page-blocks/delete-media',[PageBlockController::class, 'removeMedia'])->name('voyager.page-blocks.media-remove');
+    Route::post('/applications/{id}/reject',[ApplicationController::class, 'reject'])->name('voyager.application.reject');
+    Route::post('/applications/{id}/accept',[ApplicationController::class, 'accept'])->name('voyager.application.accept');
+    Route::get('/applications/{id}/block',[ApplicationController::class, 'block'])->name('voyager.application.block');
+    Route::get('/applications/{id}/unblock',[ApplicationController::class, 'unblock'])->name('voyager.application.unblock');
+});
+
 Route::controller(PageController::class)
     ->group(function () {
         Route::get('/form', 'form')->name('form');
@@ -55,16 +68,3 @@ Route::prefix('ajax')
         Route::post('/application/form-data',[AjaxController::class, 'formData']);
 
     });
-
-/**
- * Admin Panel - routes
- */
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-    Route::post('/page-blocks/delete-media',[PageBlockController::class, 'removeMedia'])->name('voyager.page-blocks.media-remove');
-    Route::post('/applications/{id}/reject',[ApplicationController::class, 'reject'])->name('voyager.application.reject');
-    Route::post('/applications/{id}/accept',[ApplicationController::class, 'accept'])->name('voyager.application.accept');
-    Route::get('/applications/{id}/block',[ApplicationController::class, 'block'])->name('voyager.application.block');
-    Route::get('/applications/{id}/unblock',[ApplicationController::class, 'unblock'])->name('voyager.application.unblock');
-});

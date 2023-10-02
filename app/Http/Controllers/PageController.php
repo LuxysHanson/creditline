@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\Brand;
+use App\Models\Locality;
 use App\Models\Model;
 use App\Models\Page;
 use App\Models\PageBlock;
@@ -89,6 +90,9 @@ class PageController extends Controller
             case 4:
                 $params['models'] = Model::query()->orderBy('name')->pluck('name');
                 $params['brands'] = Brand::query()->orderBy('name')->pluck('name');
+                break;
+            case 7:
+                $params['localities'] = Locality::query()->pluck('name');
         }
 
         $params['step'] = $step;

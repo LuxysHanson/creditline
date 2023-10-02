@@ -3,9 +3,17 @@
     <div class="title">@lang('form.step7.title')</div>
     <div class="input">
         <div class="input_title">@lang('form.step7.locality')</div>
-        <div class="input_input">
-            <input class="a_locality" type="text" name="locality" autocomplete="off"
-                value="{{ $application->address['locality'] ?? '' }}">
+        <div class="tt-select">
+            <select class="a_locality" name="locality">
+                @php($locality = $application->address['locality'] ?? '')
+                @if($localities)
+                    @foreach($localities as $key => $value)
+                        <option value="{{ $key }}"
+                                @if($locality == $key) selected @endif
+                        >{{ $value }}</option>
+                    @endforeach
+                @endif
+            </select>
         </div>
     </div>
     <div class="input">

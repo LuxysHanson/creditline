@@ -16,7 +16,7 @@
     <div style="clear:both;">
         <p style="margin-top:0pt; margin-bottom:0pt; line-height:normal;"><img src="https://myfiles.space/user_files/175332_31c7bb70f49aab29/1694955715_--------creditline/1694955715_--------creditline-1.png" width="210" height="38" alt=""><br></p>
     </div>
-    @php($date = \Carbon\Carbon::make($application->created_at))
+    @php($date = \Carbon\Carbon::now('Asia/Almaty'))
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:right; line-height:150%;"><strong><span style="">Приложение №1&nbsp;</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:right; line-height:150%;"><strong><span style="">к Правилам внутреннего контроля</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; line-height:150%;"><strong><span style="">г. Алматы</span></strong><strong><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong><strong><span style="width:58.76pt;  display:inline-block;">&nbsp;</span></strong><strong><span style="width:42.5pt;  display:inline-block;">&nbsp;</span></strong><strong><span style="width:5.7pt;  display:inline-block;">&nbsp;</span></strong><strong><span style="width:8.2pt;  display:inline-block;">&nbsp;</span></strong><strong><span style="width:36pt;  display:inline-block;">&nbsp;</span></strong><strong><span style="">Дата заполнения:&nbsp;</span></strong><strong><span style="">&laquo;</span></strong><strong><span style="">{{ $date->day }}</span></strong><strong><span style="">&raquo;&nbsp;{{ \App\Enums\MonthEnum::getInTheGenetiveCase($date->month) }}</span></strong><strong><span style="">&nbsp;{{ $date->year }}г.</span></strong></p>
@@ -112,7 +112,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Фамилия</span></p>
             </td>
             <td colspan="2" style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ ($application->client['patronymic'] ?? '') }}</span></p>
             </td>
         </tr>
         <tr>
@@ -123,7 +123,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Имя</span></p>
             </td>
             <td colspan="2" style="border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ ($application->client['name'] ?? '') }}</span></p>
             </td>
         </tr>
         <tr>
@@ -134,7 +134,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Отчество (при наличии)</span></p>
             </td>
             <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ ($application->client['surname'] ?? '') }}</span></p>
             </td>
         </tr>
         <tr>
@@ -145,7 +145,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Дата рождения</span></p>
             </td>
             <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ \Carbon\Carbon::make($birth_date)->format('d.m.Y') }}</span></p>
             </td>
         </tr>
         <tr>
@@ -167,7 +167,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Индивидуальный идентификационный номер (ИИН)</span></p>
             </td>
             <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ $application->loan['iin'] ?? '' }}</span></p>
             </td>
         </tr>
         <tr>
@@ -178,7 +178,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Номер документа, удостоверяющего личность</span></p>
             </td>
             <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;{{ $application->client['number_doc'] ?? '' }}</span></p>
             </td>
         </tr>
         <tr>
@@ -189,7 +189,10 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Когда и кем выдан</span></p>
             </td>
             <td colspan="2" style="width:153pt; border-right-style:solid; border-right-width:1pt; border-bottom-style:solid; border-bottom-width:1pt; padding-right:7.9pt; padding-left:8.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;
+                        {{ \Carbon\Carbon::make($date_doc)->format('d.m.Y') }} г.,
+                        {{ $application->getIssuedByDocument()[$issued_by_doc] ?? '' }}
+                    </span></p>
             </td>
         </tr>
         <tr>

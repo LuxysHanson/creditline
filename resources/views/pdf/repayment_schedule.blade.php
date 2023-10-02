@@ -20,7 +20,7 @@
     <table cellspacing="0" cellpadding="0" style="width:311.85pt; margin-left:189.7pt; border-collapse:collapse;">
         <tbody>
         <tr>
-            @php($date = \Carbon\Carbon::make($application->created_at))
+            @php($date = \Carbon\Carbon::now('Asia/Almaty'))
             <td style="width:301.05pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:12pt;"><span style="">{{ $date->format('d.m.Y') }}</span><span style="">ж. №</span><span style="">_________</span><span style="">&nbsp;Кепіл билетіне</span><span style="">&nbsp;&nbsp;</span><span style="">қосымша/</span></p>
                 <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:12pt;"><span style="">Приложение к Залоговому билету от&nbsp;</span><span style="">{{ $date->format('d.m.Y') }}</span><span style="">г. №</span><span style="">____</span></p>
