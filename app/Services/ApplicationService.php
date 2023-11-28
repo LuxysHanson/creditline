@@ -2,12 +2,15 @@
 
 namespace App\Services;
 
+use App\Events\ApplicationCreatedEvent;
+use App\Events\ApplicationUpdatedEvent;
 use App\Helpers\Common;
 use App\Models\Application;
 use App\Models\Blacklist;
 use App\Models\SendSms;
 use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
+use Stevebauman\Location\Facades\Location;
 
 class ApplicationService
 {
@@ -57,6 +60,8 @@ class ApplicationService
             return false;
         }
 
+        ApplicationCreatedEvent::dispatch($application);
+
         return $application;
     }
 
@@ -70,14 +75,17 @@ class ApplicationService
             ->first();
 
         if ($oldSms) {
+
+
             $compareTime = Common::compareTimeWithCurrent($oldSms->created_at);
+
             if ($compareTime)
                 return true;
-        }
+        }      // print_r($compareTime);
 
         $sendSms = new SendSms();
-        $sendSms->phone = $request->post('phone');
-        $sendSms->step = $request->post('step');
+        $sendSms->phone = $request->input('phone');
+        $sendSms->step = $request->input('step');
         $sendSms->application_id = $request->post('application_id');
         $sendSms->code = Common::randomNumber();
         if (!$sendSms->save()) {
@@ -87,8 +95,8 @@ class ApplicationService
         $message = "Код: " . $sendSms->code  . " online.creditline.kz";
         if ($this->smsService->sendSMSMessage($sendSms->phone, $message)) {
             $application->query()
-                ->where('id', $request->post('application_id'))
-                ->update(['step' => $request->post('step')]);
+                ->where('id', $request->input('application_id'))
+                ->update(['step' => $request->input('step')]);
             return true;
         }
 
@@ -99,16 +107,20 @@ class ApplicationService
     {
         $applicationId = $request->post('application_id');
         $sendSms = SendSms::query()
-            ->where('application_id', intval($applicationId))
+            ->where('application_id', (int) $applicationId)
             ->where('state', 0)
             ->orderByDesc('created_at')
             ->first();
 
         if ($sendSms) {
-            $compareTime = Common::compareTimeWithCurrent($sendSms->created_at);
-            if ($sendSms->code == $request->post('code') && $compareTime) {
+            //$compareTime = Common::compareTimeWithCurrent($sendSms->created_at);
+            //if ($sendSms->code == $request->post('code') && $compareTime) {
+            if ($sendSms->code == $request->post('code')) {
                 $sendSms->update(['state' => 1]);
-                $application->query()->where('id', $applicationId)->update(['step' => $request->post('step')]);
+                $application = $application->find($applicationId);
+                $application->update(['step' => $request->post('step')]);
+
+                event(new ApplicationUpdatedEvent($application, $request->all()));
                 return true;
             }
         }
@@ -116,22 +128,25 @@ class ApplicationService
         return false;
     }
 
-    public function formData(Request $request)
+    public function formData(Request $request): bool
     {
+        $application = Application::find($request->input('application_id'));
 
-        $application = Application::query()
-            ->where('id', intval($request->post('application_id')))
-            ->first();
-
-        if (!$application)
+        if (!$application) {
             return false;
+        }
 
         if ($key = $request->post('key')) {
             $application->{$key} = $request->post('data') ?: [];
         }
 
         $application->step = $request->post('step');
-        return $application->save();
+
+        $application->save();
+
+        ApplicationUpdatedEvent::dispatch($application, $request->all());
+
+        return true;
     }
 
 }

@@ -67,4 +67,8 @@ Route::prefix('ajax')
         Route::post('/application/create',[AjaxController::class, 'createApplication']);
         Route::post('/application/form-data',[AjaxController::class, 'formData']);
 
+        #getModels
+        Route::post('/application/get-model',[AjaxController::class, 'getModels']);
+
+
     });

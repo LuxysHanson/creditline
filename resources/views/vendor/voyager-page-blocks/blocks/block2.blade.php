@@ -1,4 +1,4 @@
-<div class="block2">
+<div class="block2" id="second-block">
     <div class="container">
         <picture class="bg1">
             <source srcset="/assets/images/icons/why1.webp" type="image/webp">

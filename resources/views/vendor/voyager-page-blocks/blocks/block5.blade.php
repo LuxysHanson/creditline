@@ -1,4 +1,4 @@
-<div class="block5">
+<div class="block5" id="fifth-block">
     <div class="bg"></div>
     <picture class="bg2">
         <source srcset="/assets/images/icons/Ellipse2.webp" type="image/webp">

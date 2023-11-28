@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\ApplicationCreatedEvent;
+use App\Events\ApplicationUpdatedEvent;
+use App\Listeners\BitrixCreateListener;
+use App\Listeners\SyncBitrixListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +22,13 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        ApplicationCreatedEvent::class => [
+            BitrixCreateListener::class,
+        ],
+
+        ApplicationUpdatedEvent::class => [
+            SyncBitrixListener::class
+        ]
     ];
 
     /**

@@ -18,14 +18,6 @@
         </div>
     </a>
     <a class="pdf" href="{{ route('pdf.generate', [
-    'hash' => $application->id_hash, 'type' => 'agreement'
-]) }}" target="_blank">
-        <div class="pdf_list">
-            <img src="/assets/images/icons/docs.svg" alt="docs-icon3">
-            <div class="pdf_text">@lang('form.step9.doc3_name')</div>
-        </div>
-    </a>
-    <a class="pdf" href="{{ route('pdf.generate', [
     'hash' => $application->id_hash, 'type' => 'information_form'
 ]) }}" target="_blank">
         <div class="pdf_list">
@@ -49,7 +41,7 @@
             @lang('form.back_btn')
         </div>
         <div class="btn btn_green goTechPhotoAuto" data-id="{{ $application->id }}">
-            @lang('form.continue_btn')
+            @lang('form.sign_btn')
             <img src="/assets/images/icons/arrow_left.svg" alt="arrow-left-icon">
         </div>
     </div>

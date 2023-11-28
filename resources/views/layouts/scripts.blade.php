@@ -6,7 +6,7 @@
 <script src="{{ asset('/assets/js/iincheck.min.js') }}" defer></script>
 <script src="{{ asset('/assets/js/date-ru-RU.js') }}" defer></script>
 <script src="{{ asset('/assets/js/script.js?v='. time()) }}" defer></script>
-<script src="{{ asset('/assets/js/mask.min.js?v='. time()) }}" defer></script>
+<script src="{{ asset('/assets/js/mask.js?v='. time()) }}" defer></script>
 <script type="text/javascript">
     var app = {
         token: "{{ csrf_token() }}",

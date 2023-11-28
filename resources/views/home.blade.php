@@ -8,7 +8,7 @@
     <main class="mainPage">
         {!! $page->body !!}
     </main>
-    <div class="table">
+    <div class="table" style="display: none;">
         <div class="table_head">
             <div class="text">@lang('general.table.title')</div>
             <img src="/assets/images/icons/union.svg" alt="union-icon" onclick="closeTable()">

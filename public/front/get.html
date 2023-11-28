@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Creditline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" as="image" href="./assets/images/icons/logo.svg">
+    <link rel="shortcut icon" type="image/svg" href="./assets/images/icons/logo.svg">
+    <link rel="stylesheet" href="./assets/css/style.min.css?v=90520629">
+    <link rel="stylesheet" href="./assets/css/depense.min.css?v=90520629" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/animate.min.css?v=90520629" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="./assets/css/baguetteBox.min.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="./assets/css/style.min.css?v=90520629" media="all">
+      <link rel="stylesheet" href="./assets/css/depense.min.css?v=90520629" media="all">
+      <link rel="stylesheet" href="./assets/css/animate.min.css?v=90520629" media="all">
+      <link rel="stylesheet" href="./assets/css/baguetteBox.min.css?v=90520629" media="all">
+    </noscript>
+  </head>
+  <body id="app">
+    <header class="header">
+      <div class="header_top">
+        <div class="container">
+          <div class="header_logo"><a href="./"><img src="./assets/images/icons/logo.svg" alt="logo"></a></div>
+          <div class="header_icons">
+            <div class="lang"><a class="lang_link" href="/">қаз</a></div><a class="whatsapp" href="/"><img src="./assets/images/icons/whatsapp.svg" alt=""></a><a class="call" href="/"><img src="./assets/images/icons/phone.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="getPage">
+      <div class="block1 blank active">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/loan.svg" alt=""></div>
+          <div class="title">Получите деньги</div>
+          <div class="input">
+            <div class="input_title">Ваш контактный номер</div>
+            <div class="input_input">
+              <input class="a_phoneNumber" type="tel" placeholder="+7 (___) ___-__-__" name="phoneNumber" autocomplete="off">
+            </div>
+          </div>
+          <div class="agreement">
+            <input type="checkbox" name="agreement" checked>
+            <div class="agreement_text">Даю своё<b> согласие на хранение и обработку персональных данных</b></div>
+          </div>
+          <div class="btn_row"><a class="btn btn_gray" href="/">Назад</a>
+            <div class="btn btn_green getCode" onclick="timerAgain()">Получить код</div>
+          </div>
+        </div>
+      </div>
+      <div class="block2 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/loan.svg" alt=""></div>
+          <div class="title">Получите деньги</div>
+          <div class="desc">Мы отправили код на телефон &nbsp;<span class="phoneNumberString">+7 777 777 77 77</span></div>
+          <div class="input">
+            <div class="input_title">Введите полученный код</div>
+            <div class="input_input">
+              <input class="a_validCode1" type="code" autocomplete="off" placeholder="__ __ __ __ __ __" name="getCode" onkeypress="return AllowOnlyNumbers(event);">
+            </div>
+          </div>
+          <div class="btn_again">
+            <div class="btn1 active">Запросить код через 120 сек.</div>
+            <div class="btn2">Запросить код</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goNumber">Назад</div>
+            <div class="btn btn_green nextAnket">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block3 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/checklist.svg" alt=""></div>
+          <div class="title">Сведения о займе</div>
+          <div class="input">
+            <div class="input_title">ИИН</div>
+            <div class="input_input">
+              <input class="a_iin" type="iin" placeholder="XXX-XXX-XXX-XXX" name="iin" autocomplete="off">
+            </div>
+          </div>
+          <div class="calculate">
+            <div class="input">
+              <label>Сумма микрокредита</label>
+              <input class="allSum tengeInput" type="text" value="2050000" onkeypress="return AllowOnlyNumbers(event);">
+            </div>
+            <div class="range">
+              <input class="allSumRange" type="range" min="400000" max="3000000" value="2050000" step="10000">
+              <div class="range_row">
+                <div class="min">400 000 ₸</div>
+                <div class="center">1,5 млн ₸</div>
+                <div class="max">3 млн ₸</div>
+              </div>
+            </div>
+            <div class="input">
+              <label>Сумма микрокредита</label>
+              <input class="monthInput" type="text" value="12" onkeypress="return AllowOnlyNumbers(event);">
+            </div>
+            <div class="range">
+              <input class="monthRange" type="range" min="1" max="12" value="12" step="1">
+              <div class="range_row">
+                <div class="min">1 мес.</div>
+                <div class="center">6 мес.</div>
+                <div class="max">12 мес.</div>
+              </div>
+            </div>
+            <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+              <div class="text">Необходима установка GPS</div><img class="info" src="./assets/images/icons/question.svg" alt="">
+              <div class="absolute">Для получения займа свыше 2 млн. тенге, необходимо установить датчик GPS на Ваш автомобиль</div>
+            </div>
+            <div class="select">
+              <div class="title">Тип погашения</div>
+              <div class="select_row">
+                <input type="radio" name="repaymentType" id="repaymentType1" value="1" checked>
+                <label for="repaymentType1">Процентный</label>
+              </div>
+              <div class="select_row">
+                <input type="radio" name="repaymentType" id="repaymentType2" value="2">
+                <label for="repaymentType2">Аннуитетный</label>
+              </div>
+            </div>
+            <div class="monthlyPay">
+              <div class="monthlyPay_title">Ежемесячный платёж:</div>
+              <div class="monthlyPay_sum calcSumRow">76 260 ₸</div>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Ваш ежемесячный доход</div>
+            <div class="input_input">
+              <input class="tengeInput monthlyIncome" type="text" name="monthlyIncome" value="0" onkeypress="return AllowOnlyNumbers(event);" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Дополнительный номер<img src="./assets/images/icons/question.svg" alt=""></div>
+            <div class="input_input">
+              <input class="a_phoneNumber2" type="tel2" placeholder="+7 (___) ___-__-__" name="phoneNumber2" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Электронная почта</div>
+            <div class="input_input">
+              <input class="anketEmail" type="email" placeholder="" name="email" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Номер счета (IBAN)<img src="./assets/images/icons/question.svg" alt=""></div>
+            <div class="input_input">
+              <input class="a_iban" type="iban" placeholder="KZ**************" name="iban" autocomplete="off">
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goValidate">Назад</div>
+            <div class="btn btn_green infoBTN">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block4 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/lease.svg" alt=""></div>
+          <div class="title">Сведения об автомобиле</div>
+          <div class="input">
+            <div class="input_title">Марка</div>
+            <div class="tt-select">
+              <select class="a_marka" name="region">
+                <option value="0">Toyoto</option>
+                <option value="1">Toyoto2</option>
+                <option value="2">Toyoto3</option>
+                <option value="3">Toyoto4</option>
+                <option value="4">Toyoto5</option>
+              </select>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Модель</div>
+            <div class="tt-select">
+              <select class="a_model" name="region">
+                <option value="0">Prado 150</option>
+                <option value="1">Prado</option>
+                <option value="2">Prado</option>
+                <option value="3">Prado</option>
+                <option value="4">Prado</option>
+              </select>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Год выпуска</div>
+            <div class="input_input">
+              <input class="a_yearCar" type="number" placeholder="2010" name="dateCar" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Цвет</div>
+            <div class="input_input">
+              <input class="a_colorCar" type="text" placeholder="Белый металлик" name="colorCar" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Гос номер</div>
+            <div class="input_input">
+              <input class="a_numberCar" type="text" placeholder="777ХХХ02, Х777ХХХ" name="numberCar" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">VIN</div>
+            <div class="input_input">
+              <input class="a_vin" type="text" placeholder="777ХХХ02, Х777ХХХ" name="vin" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Номер свидетельства о регистрации ТС (Тех. паспорт)</div>
+            <div class="input_input">
+              <input class="a_techPassword" type="text" placeholder="0AAAA00AAAA000000" name="techPassword" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Дата выдачи свидетельства о регистрации ТС (Тех. паспорт)</div>
+            <div class="input_input">
+              <input class="a_techPasswordDate" type="date" min="2010-01-01" placeholder="2010-01-01" name="techPasswordDate" required>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goLoan">Назад</div>
+            <div class="btn btn_green nextScreen">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block5 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/camera.svg" alt=""></div>
+          <div class="title">Фото документов</div>
+          <div class="select">
+            <div class="title">Выберите тип документа, удостоверяющий личность</div>
+            <div class="select_row">
+              <input type="radio" name="documentType" id="UdLichnost" value="1" checked>
+              <label for="UdLichnost">Удостоверение личности</label>
+            </div>
+            <div class="select_row">
+              <input type="radio" name="documentType" id="Password" value="2">
+              <label for="Password">Паспорт</label>
+            </div>
+          </div>
+          <div class="box active">
+            <div class="input">
+              <div class="input_title">Удостоверение личности</div>
+              <div class="input_input filer">
+                <input type="file" id="frontScreen" name="frontScreen" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(1)">
+                  <div>Лицевая сторона</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Удостоверение личности</div>
+              <div class="input_input filer">
+                <input type="file" id="backScreen" name="backScreen" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(2)">
+                  <div>Оборотная сторона</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Селфи</div>
+              <div class="input_input filer">
+                <input type="file" id="selfieScreen" name="selfieScreen" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(3)">
+                  <div>С удостоверением личности</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="input">
+              <div class="input_title">Паспорт</div>
+              <div class="input_input filer">
+                <input type="file" id="passwordScreen" name="passwordScreen" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(4)">
+                  <div>Паспорт</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Селфи</div>
+              <div class="input_input filer">
+                <input type="file" id="withPasswordScreen" name="withPasswordScreen" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(5)">
+                  <div>С паспортом</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goInfoCar">Назад</div>
+            <div class="btn btn_green personalData">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block6 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/personalInfo.svg" alt=""></div>
+          <div class="title">Ваши данные</div>
+          <div class="input">
+            <div class="input_title">Фамилия</div>
+            <div class="input_input">
+              <input class="a_patronymic" type="text" name="patronymic" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Имя</div>
+            <div class="input_input">
+              <input class="a_name" type="text" name="name" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Отчество</div>
+            <div class="input_input">
+              <input class="a_surname" type="text" name="surname" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Дата рождения</div>
+            <div class="input_input">
+              <input class="a_bornDate" type="date" name="bornDate" required>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Семейное положение</div>
+            <div class="tt-select">
+              <select class="a_fStatus" name="fStatus">
+                <option value="0">Женат/Замужем</option>
+                <option value="1">Не женат/не замужем</option>
+                <option value="2">Разведена/разведен</option>
+              </select>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Тип документа</div>
+            <div class="tt-select">
+              <select class="a_typeDoc" name="typeDoc">
+                <option value="0">Удостоверение личности</option>
+                <option value="1">Паспорт</option>
+              </select>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Номер документа</div>
+            <div class="input_input">
+              <input class="a_numberDoc" type="number" name="numberDoc" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Дата выдачи</div>
+            <div class="input_input">
+              <input class="a_dateDoc" type="date" name="dateDoc" required>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Дата окончания</div>
+            <div class="input_input">
+              <input class="a_dateDoc2" type="date" name="dateDoc2" required>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Кем выдано</div>
+            <div class="tt-select">
+              <select class="a_issuedByDoc" name="issuedByDoc">
+                <option value="0">МВД РК</option>
+                <option value="1">МВД РК</option>
+              </select>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Гражданство</div>
+            <div class="tt-select">
+              <select class="a_citizenshipDoc" name="citizenshipDoc">
+                <option value="0">Резидент РК</option>
+                <option value="1">Нерезидент РК</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goPhotoDocuments">Назад</div>
+            <div class="btn btn_green nextAddress">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block7 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/personalInfo.svg" alt=""></div>
+          <div class="title">Адресные данные</div>
+          <div class="input">
+            <div class="input_title">Населённый пункт</div>
+            <div class="input_input">
+              <input class="a_locality" type="text" name="locality" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Улица</div>
+            <div class="input_input">
+              <input class="a_street" type="text" name="street" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Номер дома</div>
+            <div class="input_input">
+              <input class="a_numberHome" type="text" name="numberHome" autocomplete="off">
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Номер квартиры</div>
+            <div class="input_input">
+              <input class="a_numberKv" type="text" name="numberKv" autocomplete="off">
+            </div>
+          </div>
+          <div class="question">
+            <div class="text">Адрес проживания</div><img class="info" src="./assets/images/icons/question.svg" alt="">
+            <div class="absolute">Для получения займа свыше 2 млн. тенге, необходимо установить датчик GPS на Ваш автомобиль</div>
+          </div>
+          <div class="select2">
+            <div class="select2_row">
+              <input type="checkbox" name="equalAddress" id="equalAddress" value="1">
+              <label for="equalAddress">Совпадает с адресом прописки</label>
+            </div>
+          </div>
+          <div class="box active">
+            <div class="input">
+              <div class="input_title">Населённый пункт</div>
+              <div class="input_input">
+                <input class="a_locality2" type="text" name="locality2" autocomplete="off">
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Улица</div>
+              <div class="input_input">
+                <input class="a_street2" type="text" name="street2" autocomplete="off">
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Номер дома</div>
+              <div class="input_input">
+                <input class="a_numberHome2" type="text" name="numberHome2" autocomplete="off">
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">Номер квартиры</div>
+              <div class="input_input">
+                <input class="a_numberKv2" type="text" name="numberKv2" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goBackPersonalInfo">Назад</div>
+            <div class="btn btn_green nextApplication">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block8 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/g2232.svg" alt=""></div>
+          <div class="title">Подписание заявки</div>
+          <div class="bannerPhoto a_loading">
+            <picture>
+              <source srcset="./assets/images/icons/loading_a.webp" type="image/webp">
+              <source srcset="./assets/images/icons/loading_a.webp" type="image/pjp2"><img src="./assets/images/icons/loading_a.png" alt="">
+            </picture>
+            <div class="title">Подпишите документы для обработки Вашей заявки</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Для этого необходимо просто ввести СМС код, полученный после нажатия на кнопку «Отправить»</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goAddress">Назад</div>
+            <div class="btn btn_green nextApplicationCode active">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block9 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/g2232.svg" alt=""></div>
+          <div class="title">Подписание документов</div><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Заявление-анкеты на предостваление кредита</div>
+            </div></a><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Согласие субъекта КИ</div>
+            </div></a><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Согласие на сбор и обработку персональных данных</div>
+            </div></a><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Заявление на соответствие</div>
+            </div></a>
+          <div class="input">
+            <div class="input_title">Введите полученный код из СМС</div>
+            <div class="input_input">
+              <input class="a_validCode2" type="code" autocomplete="off" placeholder="__ __ __ __ __ __" name="getCode" onkeypress="return AllowOnlyNumbers(event);">
+            </div>
+          </div>
+          <div class="btn_again2">
+            <div class="btn1 active">Запросить код через 120 сек.</div>
+            <div class="btn2">Запросить код</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goMainApplication">Назад</div>
+            <div class="btn btn_green goTechPhotoAuto">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block10 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/driver-license.svg" alt=""></div>
+          <div class="title">Фото документов авто</div>
+          <div class="desc">Сфотографируйте свидетельство о регистрации транспортного средства, оно же СРТС или техпаспорт</div>
+          <div class="box active">
+            <div class="input">
+              <div class="input_title">СРТС (техпаспорт)</div>
+              <div class="input_input filer">
+                <input type="file" id="frontScreenAuto" name="frontScreenAuto" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(6)">
+                  <div>Лицевая сторона</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_title">СРТС (техпаспорт)</div>
+              <div class="input_input filer">
+                <input type="file" id="backScreenAuto" name="backScreenAuto" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(7)">
+                  <div>Оборотная сторона</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goApplicationScreenAuto">Назад</div>
+            <div class="btn btn_green goPhotoAuto">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block11 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/surrounded.svg" alt=""></div>
+          <div class="title">Фото автомобиля</div>
+          <div class="desc">Теперь давайте сфотографируем Вашу машину, как только будете у машины, нажмите кнопку «Продолжить».</div>
+          <div class="btn_row">
+            <div class="btn btn_gray goPhotoAutoApplication">Назад</div>
+            <div class="btn btn_green goLoadPhotoAuto active">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block12 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/surrounded.svg" alt=""></div>
+          <div class="title">Фото документов авто</div>
+          <div class="box active">
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto1" name="auto1" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(8)">
+                  <div>Спереди справа</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto2" name="auto2" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(9)">
+                  <div>Спереди слева</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto3" name="auto3" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(10)">
+                  <div>Сзади справа</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto4" name="auto4" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(11)">
+                  <div>Сзади справа</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="question2"><img src="./assets/images/icons/warning.svg" alt="">
+              <div class="text">Номер авто должен быть виден на всех фотографиях</div>
+            </div>
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto5" name="auto5" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(12)">
+                  <div>Приборная панель с заведённым двигателем</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+            <div class="input">
+              <div class="input_input filer">
+                <input type="file" id="auto6" name="auto6" accept="image/*" required>
+                <label class="label" onclick="showScreenModal(13)">
+                  <div>VIN код на кузове, не под стеклом</div><img class="default" src="./assets/images/icons/camera2.svg" alt=""><img class="error" src="./assets/images/icons/errorFile.svg" alt="">
+                </label>
+                <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+                  <div class="text">Загрузите повторно</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goMainLoadPhotoAuto">Назад</div>
+            <div class="btn btn_green goPushAll">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block13 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/logo.svg" alt=""></div>
+          <div class="title">Обрабатываем заявку</div>
+          <div class="desc">Для проверки нужно не более 30 минут при условии, что Вы будете на связи</div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">
+              <p>Проверка заявок с 9-00 до 18-00 по Астане в будни дни</p>
+              <p>Возможно, мы Вам позвоним для уточнение данных</p>
+              <p>Как только примем решение, Вам придёт СМС</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block14 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/g2232.svg" alt=""></div>
+          <div class="title">Осталось всего пару шагов</div><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">График погашения микрокредита</div>
+            </div></a><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Залоговый билет с правом управления транспортным средством</div>
+            </div></a><a class="pdf" href="/" target="_blank">
+            <div class="pdf_list"><img src="./assets/images/icons/docs.svg" alt="">
+              <div class="pdf_text">Уведомление в ГАИ о регистрации залога транспортного средства</div>
+            </div></a>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">
+              <p>Подписание документов для получения микрокредита производиться в будни дни с 9-00 до 18-00</p>
+            </div>
+          </div>
+          <div class="input">
+            <div class="input_title">Введите полученный код из СМС</div>
+            <div class="input_input">
+              <input class="a_validCode3" type="code" autocomplete="off" placeholder="__ __ __ __ __ __" name="getCode" onkeypress="return AllowOnlyNumbers(event);">
+            </div>
+          </div>
+          <div class="btn_again3">
+            <div class="btn1 active">Запросить код через 120 сек.</div>
+            <div class="btn2">Запросить код</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray goLoadScreens">Назад</div>
+            <div class="btn btn_green goFinal">Продолжить<img src="./assets/images/icons/arrow_left.svg" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="block15 blank">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/g2232.svg" alt=""></div>
+          <div class="title">Денежные средства поступят на указанный Вами IBAN счет</div>
+          <div class="desc">
+            <p>Спасибо, что воспользовались нашим онлайн кредитованием</p>
+            <p>В личном кабинете</p><a href="https://my.creditline.kz" target="_blank">my.creditline.kz</a>
+            <p>Вы можете продлевать – погашать полученный микрокредит</p>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/camera.svg" alt=""></div>
+          <div class="title">Фото документов</div>
+          <div class="bannerPhoto">
+            <picture>
+              <source srcset="./assets/images/frontUdLich.webp" type="image/webp">
+              <source srcset="./assets/images/frontUdLich.webp" type="image/pjp2"><img src="./assets/images/frontUdLich.png" alt="">
+            </picture>
+            <div class="title">Лицевая сторона удостоверения личности</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="frontScreen">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/camera.svg" alt=""></div>
+          <div class="title">Фото документов</div>
+          <div class="bannerPhoto">
+            <picture>
+              <source srcset="./assets/images/backUdLich.webp" type="image/webp">
+              <source srcset="./assets/images/backUdLich.webp" type="image/pjp2"><img src="./assets/images/backUdLich.png" alt="">
+            </picture>
+            <div class="title">Оборотная сторона удостоверения личности</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="backScreen">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto vertical">
+            <picture>
+              <source srcset="./assets/images/selfieUdLich.webp" type="image/webp">
+              <source srcset="./assets/images/selfieUdLich.webp" type="image/pjp2"><img src="./assets/images/selfieUdLich.png" alt="">
+            </picture>
+            <div class="title">Селфи с удостоверением личности</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="selfieScreen">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto vertical">
+            <picture>
+              <source srcset="./assets/images/passport.webp" type="image/webp">
+              <source srcset="./assets/images/passport.webp" type="image/pjp2"><img src="./assets/images/passport.png" alt="">
+            </picture>
+            <div class="title">Фото паспорта в развёрнутом виде</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="passwordScreen">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto vertical">
+            <picture>
+              <source srcset="./assets/images/withPassport.webp" type="image/webp">
+              <source srcset="./assets/images/withPassport.webp" type="image/pjp2"><img src="./assets/images/withPassport.png" alt="">
+            </picture>
+            <div class="title">Селфи с паспортом</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="withPasswordScreen">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/driver-license.svg" alt=""></div>
+          <div class="title">Фото документа авто</div>
+          <div class="bannerPhoto">
+            <picture>
+              <source srcset="./assets/images/frontSPTC.webp" type="image/webp">
+              <source srcset="./assets/images/frontSPTC.webp" type="image/pjp2"><img src="./assets/images/frontSPTC.png" alt="">
+            </picture>
+            <div class="title">Лицевая сторона СРТС</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="frontScreenAuto">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="img"><img src="./assets/images/icons/driver-license.svg" alt=""></div>
+          <div class="title">Фото документа авто</div>
+          <div class="bannerPhoto">
+            <picture>
+              <source srcset="./assets/images/backSPTC.webp" type="image/webp">
+              <source srcset="./assets/images/backSPTC.webp" type="image/pjp2"><img src="./assets/images/backSPTC.png" alt="">
+            </picture>
+            <div class="title">Оборотная сторона СРТС</div>
+          </div>
+          <div class="question"><img src="./assets/images/icons/warning.svg" alt="">
+            <div class="text">Сделайте фотографию без бликов, чтобы мы смогли всё прочитать</div>
+          </div>
+          <div class="btn_row">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="backScreenAuto">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto type2">
+            <picture>
+              <source srcset="./assets/images/a1.webp" type="image/webp">
+              <source srcset="./assets/images/a1.webp" type="image/pjp2"><img src="./assets/images/a1.png" alt="">
+            </picture>
+            <div class="title">Спереди слева</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto1">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto type2">
+            <picture>
+              <source srcset="./assets/images/a2.webp" type="image/webp">
+              <source srcset="./assets/images/a2.webp" type="image/pjp2"><img src="./assets/images/a2.png" alt="">
+            </picture>
+            <div class="title">Спереди справа</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto2">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto type2">
+            <picture>
+              <source srcset="./assets/images/a3.webp" type="image/webp">
+              <source srcset="./assets/images/a3.webp" type="image/pjp2"><img src="./assets/images/a3.png" alt="">
+            </picture>
+            <div class="title">Сзади слева</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto3">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto type2">
+            <picture>
+              <source srcset="./assets/images/a4.webp" type="image/webp">
+              <source srcset="./assets/images/a4.webp" type="image/pjp2"><img src="./assets/images/a4.png" alt="">
+            </picture>
+            <div class="title">Сзади справа</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto4">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto type2">
+            <picture>
+              <source srcset="./assets/images/a5.webp" type="image/webp">
+              <source srcset="./assets/images/a5.webp" type="image/pjp2"><img src="./assets/images/a5.png" alt="">
+            </picture>
+            <div class="title">VIN код на кузове</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto5">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+      <div class="screenModal">
+        <div class="container">
+          <div class="bannerPhoto vertical">
+            <picture>
+              <source srcset="./assets/images/a6.webp" type="image/webp">
+              <source srcset="./assets/images/a6.webp" type="image/pjp2"><img src="./assets/images/a6.png" alt="">
+            </picture>
+            <div class="title">Приборная панель с заведённым двигателем</div>
+          </div>
+          <div class="btn_row type2">
+            <div class="btn btn_gray" onclick="closeScreenModal()">Назад</div>
+            <label class="btn btn_green active" for="auto6">Загрузить фото</label>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="preloader"><img class="preloader_img" src="./assets/images/icons/logo.svg" alt=""></div>
+    <script src="./assets/js/jquery-3.6.3.min.js" defer></script>
+    <script src="./assets/js/slick.min.js" defer></script>
+    <script src="./assets/js/baguetteBox.min.js" defer></script>
+    <script src="./assets/js/wow.min.js" defer></script>
+    <script src="./assets/js/cacheJS.min.js" defer></script>
+    <script src="./assets/js/iincheck.min.js" defer></script>
+    <script src="./assets/js/date-ru-RU.js" defer></script>
+    <script src="./assets/js/api.js?v=62684911" defer></script>
+    <script src="./assets/js/script.js?v=62684911" defer></script>
+    <script src="./assets/js/slides.min.js?v=62684911" defer></script>
+    <script src="./assets/js/mask.min.js?v=62684911" defer></script>
+    <script src="./assets/js/select.min.js?v=62684911" defer></script>
+  </body>
+</html>

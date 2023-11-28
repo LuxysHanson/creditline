@@ -114,7 +114,7 @@
   width: calc(100% - 35px);
 }
 
-.getPage .agreement_text b {
+.getPage .agreement_text a {
   color: var(--col-2);
   font-size: 13px;
   font-style: normal;
@@ -344,7 +344,7 @@
   font-weight: 500;
   line-height: normal;
   position: absolute;
-  bottom: 100px;
+  bottom: 140px;
   display: none;
 }
 
@@ -372,7 +372,7 @@
   font-weight: 500;
   line-height: normal;
   position: absolute;
-  bottom: 100px;
+  bottom: 140px;
   display: none;
 }
 
@@ -770,12 +770,20 @@
   cursor: pointer;
 }
 
+.getPage .block4 .model-select .select-items div {
+  display: none;
+}
+
+.getPage .block4 .model-select .select-items div.visible {
+  display: block;
+}
+
 .getPage .block4 .select-selected {
   background: var(--w);
-  color: #848484;
+  color: #323f48;
   font-size: 15px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 148%;
   padding: 8px 26px 8px 21px;
   border-radius: 5px;
@@ -785,6 +793,7 @@
   height: 51px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -831,6 +840,8 @@
 }
 
 .getPage .block4 .select-items {
+  max-height: 400px;
+  overflow-y: scroll;
   position: absolute;
   background-color: var(--w);
   top: calc(100% + 5px);
@@ -3000,7 +3011,7 @@
 }
 
 .getPage .block15 .desc {
-  margin-top: 70px;
+  margin-top: 10px;
 }
 
 .getPage .block15 .desc p {
@@ -3014,6 +3025,10 @@
 }
 
 .getPage .block15 .desc p:nth-child(2) {
+  margin-top: 60px;
+}
+
+.getPage .block15 .desc p:nth-child(3) {
   margin-top: 15px;
 }
 

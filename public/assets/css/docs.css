@@ -1,0 +1,61 @@
+.docPage {
+  background: #F9F9F9;
+  min-height: calc(100vh - 454px);
+}
+
+.docPage .title {
+  color: #333F48;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%;
+  padding-bottom: 11px;
+}
+
+.docPage .block1 {
+  margin-top: 150px;
+}
+
+.docPage .link {
+  color: #952825;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 5px;
+  padding-top: 19px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@media (min-width: 460px) {
+  .docPage .link {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+@media (min-width: 1200px) {
+  .docPage .title {
+    font-size: 36px;
+  }
+
+  .docPage .link {
+    font-size: 15px;
+  }
+}

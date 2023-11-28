@@ -1,10 +1,11 @@
 <div class="container">
-    <div class="img"><img src="/assets/images/icons/lease.svg" alt="lease-icon"></div>
+    <div class="img"><img src="./assets/images/icons/lease.svg" alt=""></div>
     <div class="title">@lang('form.step4.title')</div>
     <div class="input">
         <div class="input_title">@lang('form.step4.brand')</div>
-        <div class="tt-select">
-            <select class="a_marka" name="region">
+        <div class="tt-select mark-select brands">
+            <select class="a_marka" id="brandSelect" name="brand">
+                <option>Выбирите</option>
                 @if($brands)
                     @php($brand = $application->car['brand'] ?? '')
                     @foreach($brands as $value)
@@ -18,8 +19,9 @@
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step4.model')</div>
-        <div class="tt-select">
-            <select class="a_model" name="region">
+        <div class="tt-select mark-select models">
+            <select class="a_marka" id="modelSelect" name="model">
+                <option>Выбирите</option>
                 @if($models)
                     @php($model = $application->car['model'] ?? '')
                     @foreach($models as $value)
@@ -55,19 +57,23 @@
     <div class="input">
         <div class="input_title">VIN</div>
         <div class="input_input">
-            <input class="a_vin" type="text" placeholder="777ХХХ02, Х777ХХХ" name="vin" autocomplete="off"
+            <input class="a_vin" type="text" placeholder="G3WD63R12BVIGRF43T" name="vin" autocomplete="off"
                    value="{{ $application->car['vin'] ?? '' }}">
         </div>
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step4.tech_password')</div>
         <div class="input_input">
-            <input class="a_techPassword" type="text" placeholder="0AAAA00AAAA000000" name="techPassword"
+            <input class="a_techPassword" type="text" placeholder="AT00501383" name="techPassword"
                    autocomplete="off" value="{{ $application->car['tech_password'] ?? '' }}">
         </div>
     </div>
     <div class="input">
-        <div class="input_title">@lang('form.step4.tech_date')</div>
+        <div class="input_title"> </div>
+        <div class="question">
+            <div class="input_title">@lang('form.step4.tech_date')</div><img class="info" src="./assets/images/icons/question.svg" alt="">
+            <div class="absolute info-2 info-6">@lang('general.block3.doc_date_desc')</div>
+        </div>
         <div class="input_input">
             <input class="a_techPasswordDate" type="date" min="2010-01-01" placeholder="2010-01-01"
                    name="techPasswordDate" required value="{{ $application->car['tech_date'] ?? '' }}">

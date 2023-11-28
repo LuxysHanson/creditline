@@ -848,8 +848,6 @@ img {
   font-style: normal;
   font-weight: 500;
   line-height: 137.5%;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
 }
 
 .header_menuBtn {
@@ -1086,10 +1084,42 @@ img {
   margin-top: 15px;
 }
 
+.input input.a_techPasswordDate {
+  position: relative;
+}
+
+.input input.a_techPasswordDate::after {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url(../images/calendar.png);
+  background-size: 100%;
+}
+
+.input input.a_techPasswordDate::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
 .range {
   margin-top: 20px;
   position: relative;
   z-index: 3;
+}
+
+.range.month .range_row > .center {
+  left: 42%;
 }
 
 .range input[type=range] {
@@ -1121,9 +1151,13 @@ img {
   height: 12px;
   width: 1px;
   position: absolute;
-  left: 50%;
+  left: 42.5%;
   top: calc(50% - 7px);
   z-index: -1;
+}
+
+.range input[type=range].monthRange::after {
+  left: 45.5%;
 }
 
 .range input[type=range]:active {
@@ -1255,6 +1289,7 @@ img {
 }
 
 .range_row {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1280,6 +1315,8 @@ img {
 }
 
 .range_row .center {
+  position: absolute;
+  left: 36.5%;
   color: #B8B8B8;
   text-align: center;
   font-variant-numeric: lining-nums tabular-nums;
@@ -1325,11 +1362,15 @@ img {
   margin-right: 9px;
 }
 
+.question .input_title {
+  margin-right: 9px;
+}
+
 .question .absolute {
   display: none;
   position: absolute;
   bottom: 30px;
-  right: 0;
+  left: 0;
   z-index: 3;
   color: #FFF;
   font-variant-numeric: lining-nums tabular-nums;
@@ -1339,6 +1380,7 @@ img {
   line-height: 137.5%;
   padding: 12px 24px;
   background: #333F48;
+  opacity: 0.9;
 }
 
 .question .absolute::after {
@@ -1347,12 +1389,40 @@ img {
   width: 15px;
   position: absolute;
   background-color: #333F48;
-  bottom: -8px;
+  bottom: -5px;
   left: 223px;
   -webkit-transform: rotate(225deg);
       -ms-transform: rotate(225deg);
           transform: rotate(225deg);
   z-index: 2;
+}
+
+.question .absolute.info-1::after {
+  left: 223px;
+}
+
+.question .absolute.info-2::after {
+  left: 223px;
+}
+
+.question .absolute.info-3::after {
+  left: 180px;
+}
+
+.question .absolute.info-4::after {
+  content: "";
+}
+
+.question .absolute.info-5::after {
+  left: 226px;
+}
+
+.question .absolute.info-6::after {
+  left: 540px;
+}
+
+.question#gps {
+  display: none;
 }
 
 .mainPage {
@@ -2264,7 +2334,7 @@ img {
 }
 
 .table .cell table tr td:first-child {
-  padding-right: 5px;
+  padding-right: 20px;
 }
 
 .table .cell table tr td:last-child {
@@ -2474,6 +2544,14 @@ img {
   margin-top: 30px;
 }
 
+.calculate .range_row .center {
+  left: 39.5%;
+}
+
+.calculate .range.mount .center {
+  left: 43.8%;
+}
+
 @media (min-width: 577px) {
   .header_menuBtn {
     display: none;
@@ -2481,21 +2559,6 @@ img {
 }
 
 @media (min-width: 1200px) {
-  .btn:hover {
-    cursor: pointer;
-    opacity: 0.9;
-  }
-
-  .btn_green:hover {
-    cursor: pointer;
-    opacity: 0.9;
-  }
-
-  .btn_red:hover {
-    cursor: pointer;
-    opacity: 0.9;
-  }
-
   .header_logo {
     width: 212px;
     height: 34px;
@@ -2514,11 +2577,6 @@ img {
     display: flex;
   }
 
-  .header_bottom .links .link:hover {
-    cursor: pointer;
-    color: var(--col-1);
-  }
-
   .mainTitle {
     font-size: 40px;
   }
@@ -2534,10 +2592,7 @@ img {
   }
 
   .mainPage .block1_row:nth-child(2) {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    grid-gap: 20px;
+    width: 350px;
   }
 
   .mainPage .block1_row:nth-child(3) {
@@ -2873,6 +2928,14 @@ img {
     font-size: 16px;
     height: 56px;
   }
+
+  .calculate .range_row .center {
+    left: 39%;
+  }
+
+  .calculate .range.mount .center {
+    left: 43.4%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -2886,6 +2949,16 @@ img {
   }
 }
 
+@media (max-width: 990px) {
+  .calculate .range_row .center {
+    left: 38.5%;
+  }
+
+  .calculate .range.mount .center {
+    left: 43.4%;
+  }
+}
+
 @media (max-width: 769px) {
   .modal .title {
     font-size: 26px;
@@ -2895,6 +2968,16 @@ img {
 @media (max-width: 768px) {
   .container {
     max-width: 540px;
+  }
+}
+
+@media (max-width: 767px) {
+  .calculate .range_row .center {
+    left: 37%;
+  }
+
+  .calculate .range.mount .center {
+    left: 42.1%;
   }
 }
 
@@ -2957,5 +3040,27 @@ img {
 
   .route__corent {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 450px) {
+  .calculate .range_row .center {
+    left: 35%;
+  }
+
+  .calculate .range.mount .center {
+    left: 39%;
+  }
+}
+
+@media (max-width: 400px) {
+  .range.month .range_row > .center {
+    left: 39%;
+  }
+}
+
+@media (max-width: 350px) {
+  .range_row .center {
+    left: 34.5%;
   }
 }

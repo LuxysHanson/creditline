@@ -26,17 +26,18 @@
         <div class="input_title">@lang('form.step6.birth_date')</div>
         <div class="input_input">
             <input class="a_bornDate" type="date" name="bornDate" required
-                   value="{{ $application->client['birth_date'] ?? '' }}">
+                   value="{{ $application->client['birth_date'] ?? '' }}"  max="<?=date('Y-m-d', mktime(0, 0, 0, date("m"),   date("d"),   date("Y")-18))?>">
         </div>
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step6.status')</div>
         <div class="tt-select">
             <select class="a_fStatus" name="fStatus">
+                <option>Выбирите</option>
                 @php($f_status = $application->client['family_status'] ?? 0)
                 @foreach($application->getFamilyStatuses() as $key => $value)
                     <option value="{{ $key }}"
-                        @if($f_status == $key) selected @endif
+                            @if(isset($application->client['family_status'])) @if($f_status == $key) selected @endif @endif
                     >{{ $value }}</option>
                 @endforeach
             </select>
@@ -46,10 +47,12 @@
         <div class="input_title">@lang('form.step6.doc_type')</div>
         <div class="tt-select">
             <select class="a_typeDoc" name="typeDoc">
+
+                <option>Выбирите</option>
                 @php($doc_type = $application->client['doc_type'] ?? 0)
                 @foreach($application->getDocumentTypes() as $key => $value)
                     <option value="{{ $key }}"
-                            @if($doc_type == $key) selected @endif
+                            @if(isset($application->client['doc_type']))   @if($doc_type == $key) selected @endif @endif
                     >{{ $value }}</option>
                 @endforeach
             </select>
@@ -58,7 +61,7 @@
     <div class="input">
         <div class="input_title">@lang('form.step6.number_doc')</div>
         <div class="input_input">
-            <input class="a_numberDoc" type="number" name="numberDoc" autocomplete="off"
+            <input class="a_numberDoc" type="number" name="numberDoc" autocomplete="off" maxlength="9" minlength="9"
                 value="{{ $application->client['number_doc'] ?? '' }}">
         </div>
     </div>
@@ -66,24 +69,25 @@
         <div class="input_title">@lang('form.step6.date_doc')</div>
         <div class="input_input">
             <input class="a_dateDoc" type="date" name="dateDoc" required
-                   value="{{ $application->client['date_doc'] ?? '' }}">
+                   value="{{ $application->client['date_doc'] ?? '' }}" max="<?=date('Y-m-d')?>">
         </div>
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step6.date_doc2')</div>
         <div class="input_input">
             <input class="a_dateDoc2" type="date" name="dateDoc2" required
-                   value="{{ $application->client['date_doc2'] ?? '' }}">
+                   value="{{ $application->client['date_doc2'] ?? '' }}" min="<?=date('Y-m-d', mktime(0, 0, 0, date("m"),   date("d")+2,   date("Y")))?>">
         </div>
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step6.issued_title')</div>
         <div class="tt-select">
             <select class="a_issuedByDoc" name="issuedByDoc">
+                <option>Выбирите</option>
                 @php($issued = $application->client['issued_by_doc'] ?? 0)
                 @foreach($application->getIssuedByDocument() as $key => $value)
                     <option value="{{ $key }}"
-                        @if($issued == $key) selected @endif
+                            @if(isset($application->client['issued_by_doc'])) @if($issued == $key) selected @endif @endif
                     >{{ $value }}</option>
                 @endforeach
             </select>
@@ -93,10 +97,11 @@
         <div class="input_title">@lang('form.step6.citizienship_title')</div>
         <div class="tt-select">
             <select class="a_citizenshipDoc" name="citizenshipDoc">
+                <option>Выбирите</option>
                 @php($citizienship = $application->client['citizienship'] ?? 0)
                 @foreach($application->getCitizienships() as $key => $value)
                     <option value="{{ $key }}"
-                        @if($citizienship == $key) selected @endif
+                        @if(isset($application->client['citizienship'])) @if($citizienship == $key) selected @endif @endif
                     >{{ $value }}</option>
                 @endforeach
             </select>

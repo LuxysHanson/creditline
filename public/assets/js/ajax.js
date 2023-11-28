@@ -77,7 +77,7 @@ async function sendValidCode(type, step, id) {
         success: function (a) {
         },
         error: function (error) {
-            toastr.warning('Истек время действия смс-кода!')
+            toastr.warning(error.responseJSON['message'] ?? 'Истек время действия смс-кода!')
             console.log(error)
         }
     })
@@ -110,14 +110,19 @@ $(function () {
 
     // File Storage
     $(".uploadPhotoBtn").on('click', function (e) {
+        let cache = cacheJS.get('anketa');
         e.preventDefault();
         var formName = $(this).attr('for');
-        const result = confirm('Разрешаете использование фотоаппарат и геоданные?');
+        const result = cache.confirm ?? confirm('Разрешаете использование фотоаппарат и геоданные?');
         if (result) {
-            var form = $("."+ formName + "Form");
+            cache.confirm = true;
+
+            cacheJS.set('anketa', cache, 31104, 'context');
+
+            var form = $("." + formName + "Form");
             var screenModal = $(this).parents('.screenModal');
-            $("#"+ formName).click();
-            $("#"+ formName).on('change', function (e) {
+            $("#" + formName).click();
+            $("#" + formName).on('change', function (e) {
                 e.preventDefault();
                 let formData = new FormData(form[0]);
                 $.ajax({
@@ -127,7 +132,7 @@ $(function () {
                     url: form.attr('action'),
                     type: form.attr('method'),
                     data: formData,
-                    cache:false,
+                    cache: false,
                     contentType: false,
                     processData: false,
                     beforeSubmit: function () {
@@ -140,8 +145,8 @@ $(function () {
                     complete: function (xhr) {
                         screenModal.find('.global-preloader').hide();
                         if (xhr.status === 200) {
-                            screenModal.find('.bannerPhoto img').attr('src', xhr.responseJSON.url)
-                            $("#"+ formName).attr('value', xhr.responseJSON.url);
+                            //screenModal.find('.bannerPhoto img').attr('src', xhr.responseJSON.url)
+                            $("#" + formName).attr('value', xhr.responseJSON.url);
                             valid5()
                             valid10()
                             valid12()
@@ -152,8 +157,6 @@ $(function () {
                     }
                 })
             })
-        } else {
-            toastr.warning('Нужно разрешение для продолжения!')
         }
     })
 
@@ -187,8 +190,7 @@ $(function () {
                     }
                 },
                 error: function(data) {
-                    console.log(data)
-                    toastr.error(app.errorMsg)
+                    toastr.error(data.responseJSON['message'] ?? app.errorMsg)
                 }
             });
         }
@@ -234,7 +236,7 @@ $(function () {
                         iin: $('.block3 .a_iin').val(),
                         summa: $('.block3 .tengeInput').val(),
                         deadline: $('.block3 .monthInput').val(),
-                        repayment_type: $('.block3 .selectPayment input:checked').val(),
+                        repayment_type: $('input:checked[name="repaymentType"]').val(),
                         payment: $('.block3 .monthlyIncome').val(),
                         additional_phone: $('.block3 .a_phoneNumber2').val(),
                         email: $('.block3 .anketEmail').val(),
@@ -278,8 +280,8 @@ $(function () {
                     key: that.data('key'),
                     step: that.data('step'),
                     data: {
-                        brand: $('.block4 .a_marka option:selected').val(),
-                        model: $('.block4 .a_model option:selected').val(),
+                        brand: $('#brandSelect').val(),
+                        model: $('#modelSelect').val(),
                         year: $('.block4 .a_yearCar').val(),
                         color: $('.block4 .a_colorCar').val(),
                         number: $('.block4 .a_numberCar').val(),
@@ -398,6 +400,22 @@ $(function () {
         e.preventDefault();
         let that = $(this);
         if(valid7()) {
+            let cache = cacheJS.get('anketa')
+            navigator.geolocation.getCurrentPosition((pos) => {
+                let cache = cacheJS.get('anketa')
+                const crd = pos.coords;
+                cache.longitude = crd.longitude;
+                cache.latitude = crd.latitude;
+                cache.accuracy = crd.accuracy;
+                cacheJS.set('anketa', cache, 31104, 'context');
+            }, (err) => {
+                toastr.error(err.message)
+            }, {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0,
+            });
+
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -409,7 +427,7 @@ $(function () {
                     key: that.data('key'),
                     step: that.data('step'),
                     data: {
-                        locality: $(".a_locality option:selected").val(),
+                        locality: $(".a_locality").val(),
                         street: $(".a_street").val(),
                         number_home: $(".a_numberHome").val(),
                         apartment: $(".a_numberKv").val(),
@@ -418,6 +436,9 @@ $(function () {
                         street2: $(".a_street2").val(),
                         number_home2: $(".a_numberHome2").val(),
                         apartment2: $(".a_numberKv2").val(),
+                        longitude: cache.longitude,
+                        latitude: cache.latitude,
+                        accuracy: cache.accuracy,
                     }
                 },
                 success: function(response){
@@ -438,22 +459,72 @@ $(function () {
     // перелючение на след шаг со 8 к 9 ому
     $('.block8 .nextApplicationCode').on('click', function (e){
         e.preventDefault();
+        let that = $(this);
         let data = cacheJS.get('anketa');
         data.applicationId = $(this).data('id');
         data.phoneNumberString = $(this).data('phone');
         cacheJS.set('anketa', data, 432000, 'context');
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/ajax/application/form-data",
+            type: "POST",
+            data: {
+                application_id: that.data('id'),
+                key: that.data('key'),
+                step: 9,
+            },
+            success: function(response){
+                if (response.status === 'success') {
+                    window.location.href = setAttr('stepTo', '')
+                } else {
+                    toastr.error(app.errorMsg)
+                }
+            },
+            error: function(data) {
+                console.log(data)
+                toastr.error(app.errorMsg)
+            }
+        });
         sendGetCode(9);
+
     })
 
     // перелючение на след шаг со 9 к 10 ому
     $('.block9 .goTechPhotoAuto').on('click', function (e) {
         e.preventDefault();
         let cache = cacheJS.get('anketa');
+        let that = $(this);
         sendValidCode(2, 10, $(this).data('id')).then((e)=>{
             console.log(e)
             if(e) {
                 cache.validate2 = true;
                 cacheJS.set('anketa', cache, 432000, 'context');
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "/ajax/application/form-data",
+                    type: "POST",
+                    data: {
+                        application_id: that.data('id'),
+                        key: that.data('key'),
+                        step: 10,
+                    },
+                    success: function(response){
+                        if (response.status === 'success') {
+                            window.location.href = setAttr('stepTo', '')
+                        } else {
+                            toastr.error(app.errorMsg)
+                        }
+                    },
+                    error: function(data) {
+                        console.log(data)
+                        toastr.error(app.errorMsg)
+                    }
+                });
             }
             else {
                 cache.validate2 = false;
@@ -571,12 +642,36 @@ $(function () {
     $('.block14 .goFinal').on('click', function (e) {
         e.preventDefault();
         let cache = cacheJS.get('anketa');
+        let that = $(this);
         if($('.block14 .goFinal').hasClass('active')) {
             sendValidCode(3, 15, $(this).data('id')).then((e)=>{
                 console.log(e)
                 if(e) {
                     cache.validate3 = true;
                     cacheJS.set('anketa', cache, 432000, 'context');
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "/ajax/application/form-data",
+                        type: "POST",
+                        data: {
+                            step: that.data('step'),
+                            application_id: that.data('id')
+                        },
+                        success: function(response){
+                            if (response.status === 'success') {
+                                window.location.href = setAttr('stepTo', '')
+                            } else {
+                                toastr.error(app.errorMsg)
+                            }
+                        },
+                        error: function(data) {
+                            console.log(data)
+                            toastr.error(app.errorMsg)
+                        }
+                    });
+
                 }
                 else {
                     cache.validate3 = false;
@@ -587,6 +682,44 @@ $(function () {
                 }
             });
         }
-    })
+    });
 
+    $('.brands').click(function (e) {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/ajax/application/get-model",
+            type: "POST",
+            data: {
+                brand: $('.block4 .a_marka').val(),
+            },
+            success: function(response){
+                if (response.status === 'success') {
+
+                    $('#modelSelect').empty();
+
+                    //console.log(response.models);
+                    response.models.forEach(function(elem) {
+
+                        $('#modelSelect').append($('<option></option>', {
+                            value: elem,
+                            text: elem
+                        }));
+                    });
+
+
+                    $('.models .select-selected').remove()
+                    $('.models .select-items').remove()
+                    renderSelectInputById('modelSelect');
+                } else {
+                    toastr.error(app.errorMsg)
+                }
+            },
+            error: function(data) {
+                console.log(data)
+                toastr.error(app.errorMsg)
+            }
+        });
+    } );
 })

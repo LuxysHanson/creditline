@@ -168,11 +168,12 @@
           cache.iin = strToInt;
           cacheJS.set('anketa', cache, 31104000, 'context');
           $(this).css('border-color', '#B2B2B2')
+          $(this).css('border-width', '1px');
           valid3()
         }
         else {
-          this.value = ''
           $(this).css('border-color', '#952825')
+          $(this).css('border-width', '2px');
           valid3()
         }
       }
@@ -194,18 +195,19 @@
       // KZ86125KZT5004100100
       let str = this.value.substring(0, 2);
       if(this.value.substring(0, 2) === 'KZ' && this.value.length >= 20) {
-        $(this).css('border-color', '#B2B2B2')
+        $(this).css('border-color', '#B2B2B2');
         let getCode = cacheJS.get('anketa');
         getCode.iban = this.value;
         cacheJS.set('anketa', getCode, 31104000, 'context');
         // console.log(cacheJS.get('anketa'))
         valid3()
       }
-      else if(this.value.length < 20 && this.value.substring(0, 1) !== 'K') {
+      else if(this.value.length < 20 && this.value.substring(0, 1).toLowerCase() !== 'k') {
         this.value = ''
         $(this).css('border-color', '#952825')
+        valid3()
       }
-      else if(this.value.substring(0, 1) === 'K') {
+      else if(this.value.substring(0, 1).toLowerCase() === 'k') {
         $(this).css('border-color', '#B2B2B2')
       }
     }

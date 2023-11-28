@@ -8,7 +8,9 @@
     <title>CREDITLINE.KZ PDF DOCUMENT</title>
     <style>
         @page { margin: 30px; }
-        body { font-family: inter, sans-serif; }
+        body {
+            font-family: 'DejaVu Sans', inter, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -22,65 +24,65 @@
         <tr>
             @php($date = \Carbon\Carbon::now('Asia/Almaty'))
             <td style="width:301.05pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:12pt;"><span style="">{{ $date->format('d.m.Y') }}</span><span style="">ж. №</span><span style="">_________</span><span style="">&nbsp;Кепіл билетіне</span><span style="">&nbsp;&nbsp;</span><span style="">қосымша/</span></p>
-                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:12pt;"><span style="">Приложение к Залоговому билету от&nbsp;</span><span style="">{{ $date->format('d.m.Y') }}</span><span style="">г. №</span><span style="">____</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:11pt;"><span style="">{{ $date->format('d.m.Y') }}</span><span style="">ж. <span style="">&nbsp;Кепіл билетіне</span><span style="">&nbsp;&nbsp;</span><span style="">қосымша/</span></p>
+                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:11pt;"><span style="">Приложение к Залоговому билету от&nbsp;</span><span style="">{{ $date->format('d.m.Y') }}</span><span style="">г. №</span><span style="">{{ $application->getNumberDoc() }}</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
         </tr>
         </tbody>
     </table>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:12pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. №</span></strong><strong><span style="">_____________</span></strong><strong><span style="">&nbsp;Кепіл билетіне</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:12pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. Микрокредитті өтеу кестесі /&nbsp;</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:12pt;"><strong><span style="">График погашения Микрокредита от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:12pt;"><strong><span style="">к Залоговому билету №</span></strong><strong><span style="">___________</span></strong><strong><span style="">&nbsp;от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><strong><span style="">&nbsp;</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. №</span></strong><strong><span style="">{{ $application->getNumberDoc() }}</span></strong><strong><span style="">&nbsp;Кепіл билетіне</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. Микрокредитті өтеу кестесі /&nbsp;</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">График погашения Микрокредита от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">к Залоговому билету </strong><strong><span style="">&nbsp;от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><strong><span style="">&nbsp;</span></strong></p>
     <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
         <tbody>
         <tr style="height:1.5pt;">
             <td rowspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Төлем күні/ Дата платежа</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Төлем күні/ Дата платежа</span></p>
             </td>
             <td colspan="4" style="border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Кезеңдегі төлемдер / Платежи за период</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Кезеңдегі төлемдер / Платежи за период</span></p>
             </td>
             <td rowspan="3" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Негізгі борыш (берешек) қалдығы/ Остаток основного долга (задолженности)</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Негізгі борыш (берешек) қалдығы/ Остаток основного долга (задолженности)</span></p>
             </td>
         </tr>
         <tr style="height:1.5pt;">
             <td rowspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Төлем сомасы/ Сумма платежа</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Төлем сомасы/ Сумма платежа</span></p>
             </td>
             <td colspan="3" style="border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><br><span style="">оның ішінде / в том числе</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><br><span style="">оның ішінде / в том числе</span></p>
             </td>
         </tr>
         <tr style="height:1.5pt;">
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:12pt;"><br><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><br><span style="">&nbsp;</span></p>
             </td>
             <td colspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Сыйақы / Вознаграждение</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Сыйақы / Вознаграждение</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">Негізгі борыш/ Основной долг</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">Негізгі борыш/ Основной долг</span></p>
             </td>
         </tr>
         <tr style="height:1.5pt;">
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">1</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">1</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">2</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">2</span></p>
             </td>
             <td colspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">3</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">3</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">4</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">4</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:middle;">
-                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:12pt;"><span style="">5</span></p>
+                <p style="margin-top:0pt; margin-left:1pt; margin-bottom:1pt; text-align:center; line-height:115%; font-size:11pt;"><span style="">5</span></p>
             </td>
         </tr>
 
@@ -88,62 +90,62 @@
         @foreach($schedule['elements'] as $elem)
             <tr style="height:52.55pt;">
                 <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $elem['date'] }}</span></p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $elem['date'] }}</span></p>
                 </td>
                 <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $elem['monthly_pay'] }}</span></p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $elem['monthly_pay'] }}</span></p>
                 </td>
                 <td colspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $elem['percent'] }}</span><br><span style="">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $elem['percent'] }}</span><br><span style="">&nbsp;</span></p>
                 </td>
                 <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $elem['summa'] }}</span></p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $elem['summa'] }}</span></p>
                 </td>
                 <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $elem['balance'] }}</span><br><span style="">&nbsp;</span></p>
+                    <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $elem['balance'] }}</span><br><span style="">&nbsp;</span></p>
                 </td>
             </tr>
         @endforeach
 
         <tr style="height:54.75pt;">
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">Жиыны/Итого:</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">Жиыны/Итого:</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $schedule['total'] }}</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $schedule['total'] }}</span></p>
             </td>
             <td colspan="2" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">3.72%</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $schedule['calc'] }}</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $schedule['total'] }}</span><br><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">{{ $schedule['summa'] }}</span><br><span style="">&nbsp;</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">{{ $schedule['total'] }}</span><br><span style="">&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">0 ₸</span><br><span style="">&nbsp;</span></p>
             </td>
         </tr>
         <tr style="height:1.5pt;">
             <td colspan="5" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">Айына сыйақы мөлшерлемесі / Ставка вознаграждения в месяц</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">Айына сыйақы мөлшерлемесі / Ставка вознаграждения в месяц</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:12pt;"><span style="">3,72 %</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">3,72 %</span></p>
             </td>
         </tr>
         <tr style="height:1.5pt;">
             <td colspan="5" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:12pt;"><span style="">Номиналды жылдық сыйақы мөлшерлемесі / Номинальная годовая ставка вознаграждения</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Номиналды жылдық сыйақы мөлшерлемесі / Номинальная годовая ставка вознаграждения</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:12pt;"><span style="">44,64 %</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">44,64 %</span></p>
             </td>
         </tr>
         <tr style="height:31.6pt;">
             <td colspan="5" style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:12pt;"><span style="">Жылдық тиімді сыйақы мөлшерлемесі / Годовая эффективная ставка вознаграждения:&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Жылдық тиімді сыйақы мөлшерлемесі / Годовая эффективная ставка вознаграждения:&nbsp;</span></p>
             </td>
             <td style=" border-style:solid; border-width:0.75pt; padding:0.75pt 0.38pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:12pt;"><span style="">55,95 %&nbsp;</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">55,95 %&nbsp;</span></p>
             </td>
         </tr>
         <tr style="height:31.6pt;">
@@ -165,15 +167,15 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Казимиров В.Б. _____________________</span></p>
             </td>
             <td colspan="3" style="border-style:solid; border-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:108%; font-size:12pt;"><span style="">Қарыз алушы/</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; line-height:108%; font-size:12pt;"><span style="">Ф.И.О. Заемщика:</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><u><span style="">{{ ($application->client['patronymic'] ?? '') .', '. ($application->client['name'] ?? '') .', '. ($application->client['surname'] ?? '') }}</span></u></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:108%; font-size:11pt;"><span style="">Қарыз алушы/</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; line-height:108%; font-size:11pt;"><span style="">Ф.И.О. Заемщика:</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><u><span style="">{{ $application->getFullName() }}</span></u></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><em><span style="">&nbsp;</span></em></p>
                 @php($birth_date = \Carbon\Carbon::make($application->client['birth_date'] ?? ''))
                 @php($issued_by_doc = $application->client['issued_by_doc'] ?? '')
                 @php($date_doc = \Carbon\Carbon::make($application->client['date_doc'] ?? ''))
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">&quot;</span><span style="">{{ $birth_date->format('d') }}</span><span style="">&quot;&nbsp;</span><span style="">{{ \App\Enums\MonthEnum::getInTheGenetiveCase($birth_date->format('m')) }}</span><span style="">&nbsp;&nbsp;</span><span style="">{{ $birth_date->format('Y') }}</span><span style="">г.р.,</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">ИИН&nbsp;</span><span style="">{{ $application->loan['iin'] ?? '' }}</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">ИИН&nbsp;</span><span style="">{{ $application->getIin() }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">удостоверение личности №&nbsp;</span>
                     <span style="">{{ $application->client['number_doc'] ?? '' }}</span><span style="">, выдано &nbsp;</span>
                     <span style="">{{ $application->getIssuedByDocument()[$issued_by_doc] ?? '' }}</span><span style="">&nbsp;от &quot;</span>
@@ -187,7 +189,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">Whatsapp </span><span style="">{{ $application->phone }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">Электр.почта&nbsp;</span><span style="">{{ $application->loan['email'] }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">&nbsp;</span></p>
-                @php($sendSms = $application->sendSms->where('step', 14)->first() ?? null)
+                @php($sendSms = $application->sendSms->where('step', '>=', 14)->first() ?? null)
                 <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><span style="">Қарыз алушы көп факторлы аутентификация арқылы қол қойды/ Подписано Заемщиком посредством многофакторной аутентификации</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; line-height:107%; font-size:11pt;"><span style="">Подпись (SMS код) :&nbsp;</span><span style="">{{ $sendSms->code ?? '' }}</span></p>
             </td>

@@ -4,7 +4,9 @@ return [
 
     'back_btn' => 'Артқа',
     'continue_btn' => 'Жалғастыру',
+    'send_btn' => 'Жіберу',
     'code_btn' => 'Кодты алыңыз',
+    'sign_btn' => 'Қол қою',
     'upload_photo' => 'Фотосуретті жүктеу',
 
     'step1' => [
@@ -77,7 +79,7 @@ return [
         'date_doc2' => 'аяқталу күні',
         'issued_title' => 'кім берді',
         'ISSUED_DOC_1' => 'ҚР ІІМ',
-        'ISSUED_DOC_2' => 'ҚР ІІМ',
+        'ISSUED_DOC_2' => 'ҚР ӘМ',
         'citizienship_title' => 'азаматтық',
         'citizienship_1' => 'ҚР резиденті',
         'CITIZIENSHIP_2' => 'ҚР резиденті емес',
@@ -90,6 +92,7 @@ return [
         'number_home' => 'үй нөмірі',
         'пәтер' => 'пәтер нөмірі',
         'мекен-жайы' => 'Мекен-жайы',
+        'factaddress' => 'Адрес прописки',
         'equal_address' => 'тіркеу мекен-жайына сәйкес келеді',
     ],
 
@@ -125,6 +128,7 @@ return [
     ],
 
     'step12' => [
+        'title' => 'Фото автомобиля',
     'input1_title' => 'алдыңғы сол жақта',
         'input2_title' => 'алдыңғы оң жақта',
         'input3_title' => 'артқы сол жақта',

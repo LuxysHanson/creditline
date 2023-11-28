@@ -7,7 +7,7 @@
 @section('content')
     <main class="getPage">
         <div class="block{{ $step }} blank active">
-           @include('form.step'. $step)
+            @include('form.step'. $step)
         </div>
     </main>
 @endsection
@@ -31,6 +31,7 @@
             -ms-transform: translateZ(0);
             transform: translateZ(0);
         }
+
         @-webkit-keyframes load4 {
             0%,
             100% {
@@ -58,6 +59,7 @@
                 box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
             }
         }
+
         @keyframes load4 {
             0%,
             100% {

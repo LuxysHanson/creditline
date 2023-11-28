@@ -81,12 +81,12 @@ class Common
 
     public static function getCostToString(int $cost): string
     {
-        return strlen($cost) > 6 ? (intval(substr($cost, 0, -5))/10).' млн.' : $cost . '₸';
+        return strlen($cost) > 6 ? (intval(substr($cost, 0, -5))/10).' млн.' : (intval(substr($cost, 0, -2))/10) . 'тыс';
     }
 
     public static function randomNumber($length = 6) {
         $arr = array(
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+            '1', '2', '3', '4', '5', '6', '7', '8', '9'
         );
 
         $res = '';

@@ -10,6 +10,11 @@
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keywords')">
     <meta name="title" content="@yield('seo_title')"/>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     @if(View::hasSection('seo'))
         @yield('seo')
     @endif
@@ -17,6 +22,7 @@
     {{--    <link rel="preload" href="https://fonts.googleapis.com">--}}
     {{--    <link rel="preload" href="https://fonts.gstatic.com" crossorigin="">--}}
     <link rel="stylesheet" href="{{ asset('/assets/css/style.min.css?v='. time()) }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/juk.css?v='. time()) }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/depense.min.css?v='. time()) }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('/assets/css/animate.min.css?v='. time()) }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ asset('/assets/css/baguetteBox.min.css?v='. time()) }}" media="print" onload="this.media='all'">
@@ -33,10 +39,10 @@
 </head>
 <body id="app">
 @include('layouts.main_header')
-@yield('content')
-<div class="preloader" style="display: none;">
+<div class="preloader">
     <img class="preloader_img" src="/assets/images/icons/logo.svg" alt="preloader-icon">
 </div>
+@yield('content')
 @include('layouts.scripts')
 </body>
 </html>

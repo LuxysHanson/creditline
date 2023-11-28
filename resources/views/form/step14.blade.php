@@ -48,8 +48,8 @@
         <div class="btn btn_gray goBackBtn" data-href="{{ route('form', 'hash='. $application->id_hash .'&stepTo=13') }}">
             @lang('form.back_btn')
         </div>
-        <div class="btn btn_green goFinal" data-id="{{ $application->id }}">
-            @lang('form.continue_btn')
+        <div class="btn btn_green goFinal" data-id="{{ $application->id }}" data-id="{{ $application->id }}" data-step="15">
+            @lang('form.sign_btn')
             <img src="/assets/images/icons/arrow_left.svg" alt="arrow-left-icon">
         </div>
     </div>

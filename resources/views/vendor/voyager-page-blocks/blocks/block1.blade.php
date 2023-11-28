@@ -1,4 +1,4 @@
-<div class="block1">
+<div class="block1" id="first-block">
     <img class="bg" src="/assets/images/icons/Ellipse1.svg" alt="ellipse-icon">
     <picture class="bg2">
         <source srcset="/assets/images/icons/Ellipse4.webp" type="image/webp">

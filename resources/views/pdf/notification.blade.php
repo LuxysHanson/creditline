@@ -8,7 +8,9 @@
     <title>CREDITLINE.KZ PDF DOCUMENT</title>
     <style>
         @page { margin: 30px; }
-        body { font-family: inter, sans-serif; }
+        body {
+            font-family: 'DejaVu Sans', inter, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -33,8 +35,8 @@
         @php($date_doc = $application->client['date_doc'] ?? '')
         @php($issued_by_doc = $application->client['issued_by_doc'] ?? '')
         @php($tech_date = $application->car['tech_date'] ?? '')
-        <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Залогодатель (Заемщик) &ndash; <span style="">{{ ($application->client['patronymic'] ?? '') .', '. ($application->client['name'] ?? '') .', '. ($application->client['surname'] ?? '') }}</span>, ИИН
-            <span style="">{{ $application->loan['iin'] ?? '' }},</span> удостоверение личности №
+        <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Залогодатель (Заемщик) &ndash; <span style="">{{ $application->getFullName() }}</span>, ИИН
+            <span style="">{{ $application->getIin() }},</span> удостоверение личности №
             <span style="">{{ $application->client['number_doc'] ?? '' }},</span> выдано {{ $application->getIssuedByDocument()[$issued_by_doc] ?? '' }} от
             <span style="">&quot;{{ \Carbon\Carbon::make($date_doc)->format('d') }}&quot;</span>
             <span style="">{{ \App\Enums\MonthEnum::getInTheGenetiveCase(\Carbon\Carbon::make($date_doc)->format('m')) }}</span> {{ \Carbon\Carbon::make($date_doc)->format('Y') }}г., проживающий (-ая) по адресу: Республика Казахстан,
@@ -46,10 +48,10 @@
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Сведения о предмете залога:</li>
     </ol>
     <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Марка, модель: <span style="">{{ ($application->car['brand'] ?? '') .', '. ($application->car['model'] ?? '') }}</span></p>
-    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Государственный регистрационный № <span style="">{{ ($application->car['tech_password'] ?? '') }}</span></p>
-    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Идентиф. № <span style="">{{ ($application->car['number'] ?? '') }}</span></p>
+    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Государственный регистрационный № <span style="font-family: sans-serif">{{ $application->car('number', true) }}</span></p>
+    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Идентиф. № <span style="font-family: sans-serif">{{ $application->car('vin', true) }}</span></p>
     <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt;">Цвет: <span style="">{{ ($application->car['color'] ?? '') }}</span></p>
-    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Свидетельство о регистрации транспортного средства, серия <span style="">{{ ($application->car['vin'] ?? '') }}</span> выданное
+    <p style="margin-top:0pt; margin-left:72pt; margin-bottom:0pt; text-align:justify;">Свидетельство о регистрации транспортного средства, серия <span style="">{{ $application->car('tech_password', true) }}</span> выданное
         <span style="">{{ \Carbon\Carbon::make($tech_date)->format('d.m.Y') }}</span> года;</p>
     <ol start="5" type="1" style="margin:0pt; padding-left:0pt;">
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Денежный эквивалент обязательства, обеспеченного залогом <span style="">{{ $application->loan['summa'] ?? '' }}</span>.</li>
@@ -84,9 +86,9 @@
                                     </td>
                                     <td style="width:237.25pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;">
                                         <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Ф.И.О. Заёмщика:</p>
-                                        <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;"><u><span style="">{{ ($application->client['patronymic'] ?? '') .', '. ($application->client['name'] ?? '') .', '. ($application->client['surname'] ?? '') }}</span></u></p>
+                                        <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;"><u><span style="">{{ $application->getFullName() }}</span></u></p>
                                         <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;">&nbsp;</p>
-                                        <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;">ИИН <span style="">{{ $application->loan['iin'] ?? '' }}</span></p>
+                                        <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; font-size:12pt;">ИИН <span style="">{{ $application->getIin() }}</span></p>
                                         <p style="margin-top:4.7pt; margin-right:28.65pt; margin-bottom:0pt; text-align:center; line-height:105%; font-size:12pt;">Подписано Заемщиком посредством многофакторной аутентификации</p>
                                         @php($sendSms = $application->sendSms->where('step', 14)->first() ?? null)
                                         <p style="margin-top:0pt; margin-right:28.65pt; margin-bottom:0pt; text-align:center; font-size:12pt;">Подпись (SMS код): <span style="">{{ $sendSms->code ?? '' }}</span></p>

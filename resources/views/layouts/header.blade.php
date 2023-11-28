@@ -48,8 +48,8 @@
         </a>
         <img class="mobileMenu_close" src="/assets/images/icons/close_btn.svg" alt="close-icon">
     </div>
-    <div class="btn btn_green">@lang('general.btn_loan')</div>
-    <a class="btn btn_red" href="/">@lang('general.btn_payment')</a>
+    <a class="btn btn_green"  href="form/">@lang('general.btn_loan')</a>
+    <a class="btn btn_red" href="https://my.creditline.kz/">@lang('general.btn_payment')</a>
     <div class="links">
         <div class="link" onclick="lazyScroll('.mainPage .block2', 0)">@lang('general.header.menu_item1')</div>
         <div class="link" onclick="lazyScroll('.mainPage .block3', 0)">@lang('general.header.menu_item2')</div>

@@ -1,21 +1,22 @@
 <div class="container">
     <div class="img"><img src="/assets/images/icons/personalInfo.svg" alt="personal-icon"></div>
     <div class="title">@lang('form.step7.title')</div>
+
+
+    <div class="question">
+        <div class="text">@lang('form.step7.factaddress')</div>
+        <img class="info" src="/assets/images/icons/question.svg" alt="question-icon">
+        <div class="absolute">@lang('general.block3.factaddress_desc')</div>
+    </div>
     <div class="input">
         <div class="input_title">@lang('form.step7.locality')</div>
-        <div class="tt-select">
-            <select class="a_locality" name="locality">
-                @php($locality = $application->address['locality'] ?? '')
-                @if($localities)
-                    @foreach($localities as $key => $value)
-                        <option value="{{ $key }}"
-                                @if($locality == $key) selected @endif
-                        >{{ $value }}</option>
-                    @endforeach
-                @endif
-            </select>
+
+        <div class="input_input">
+            <input class="a_locality" type="text" name="locality" autocomplete="off" id="search-input" value="{{ $application->address['locality'] ?? '' }}">
+            <ul class="select-items select-hide" id="results-list"></ul>
         </div>
     </div>
+
     <div class="input">
         <div class="input_title">@lang('form.step7.street')</div>
         <div class="input_input">
@@ -40,17 +41,16 @@
     <div class="question">
         <div class="text">@lang('form.step7.address')</div>
         <img class="info" src="/assets/images/icons/question.svg" alt="question-icon">
-        <div class="absolute">@lang('general.block3.gps_desc')</div>
+        <div class="absolute">@lang('general.block3.address_desc')</div>
     </div>
-    @php($equal_address = $application->address['equal_address'] ?? 'false')
     <div class="select2">
         <div class="select2_row">
             <input type="checkbox" name="equalAddress" id="equalAddress" value="1"
-                @if($equal_address == 'true') checked @endif>
+                @if(isset($application->address['locality2'])) checked @endif>
             <label for="equalAddress">@lang('form.step7.equal_address')</label>
         </div>
     </div>
-    <div class="box {{ $equal_address == 'true' ? '' : 'active' }}">
+    <div class="box active">
         <div class="input">
             <div class="input_title">@lang('form.step7.locality')</div>
             <div class="input_input">

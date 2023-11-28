@@ -1,5 +1,5 @@
 @if($questions->isNotEmpty())
-    <div class="block7">
+    <div class="block7" id="seventh-block">
         <div class="container">
             <div class="mainTitle center">@lang('general.faq_title')</div>
             <div class="items">

@@ -22,7 +22,16 @@ class Page extends \TCG\Voyager\Models\Page
 
     public function getTemplate(): string
     {
-        return $this->slug == '/' ? 'home' : 'page';
+        if ($this->slug == '/'){
+            return 'home';
+        }
+        elseif ('documents'){
+            return 'documents';
+        }
+        else{
+            return 'page';
+        }
+       // return $this->slug == '/' ? 'home' : 'page';
     }
 
 }

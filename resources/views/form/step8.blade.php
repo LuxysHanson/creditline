@@ -17,8 +17,8 @@
             @lang('form.back_btn')
         </div>
         <div class="btn btn_green nextApplicationCode active" data-id="{{ $application->id }}"
-            data-phone="{{ $application->phone }}">
-            @lang('form.continue_btn')
+            data-phone="{{ $application->phone }}" data-step="9">
+            @lang('form.send_btn')
             <img src="/assets/images/icons/arrow_left.svg" alt="arrow-left-icon">
         </div>
     </div>

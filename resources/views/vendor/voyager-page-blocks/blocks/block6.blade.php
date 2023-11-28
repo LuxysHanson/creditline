@@ -1,4 +1,4 @@
-<div class="block6">
+<div class="block6" id="six-block">
     <div class="container">
         <div class="bg"></div>
         <picture class="bg2">
