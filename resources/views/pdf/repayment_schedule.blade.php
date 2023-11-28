@@ -24,7 +24,7 @@
         <tr>
             @php($date = \Carbon\Carbon::now('Asia/Almaty'))
             <td style="width:301.05pt; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top;">
-                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:11pt;"><span style="">{{ $date->format('d.m.Y') }}</span><span style="">ж. <span style="">&nbsp;Кепіл билетіне</span><span style="">&nbsp;&nbsp;</span><span style="">қосымша/</span></p>
+                <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:11pt;"><span style="">{{ $date->format('d.m.Y') }}</span><span style="">ж. №{{ $application->getNumberDoc() }} <span style="">&nbsp;Кепіл билетіне</span><span style="">&nbsp;&nbsp;</span><span style="">қосымша/</span></p>
                 <p style="margin-top:0pt; margin-bottom:8pt; line-height:115%; font-size:11pt;"><span style="">Приложение к Залоговому билету от&nbsp;</span><span style="">{{ $date->format('d.m.Y') }}</span><span style="">г. №</span><span style="">{{ $application->getNumberDoc() }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><span style="">&nbsp;</span></p>
             </td>
@@ -34,7 +34,7 @@
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. №</span></strong><strong><span style="">{{ $application->getNumberDoc() }}</span></strong><strong><span style="">&nbsp;Кепіл билетіне</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">ж. Микрокредитті өтеу кестесі /&nbsp;</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">График погашения Микрокредита от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
-    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">к Залоговому билету </strong><strong><span style="">&nbsp;от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
+    <p style="margin-top:0pt; margin-bottom:0pt; text-align:center; line-height:115%; font-size:11pt;"><strong><span style="">к Залоговому билету №{{ $application->getNumberDoc() }} </strong><strong><span style="">&nbsp;от&nbsp;</span></strong><strong><span style="">{{ $date->format('d.m.Y') }}</span></strong><strong><span style="">г.</span></strong></p>
     <p style="margin-top:0pt; margin-bottom:0pt; line-height:115%; font-size:11pt;"><strong><span style="">&nbsp;</span></strong></p>
     <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
         <tbody>

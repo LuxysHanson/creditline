@@ -100,7 +100,7 @@
                     бұдан әрі &laquo;Қарыз алушы&raquo; деп аталатын <strong><span
                             style="">{{ $application->getFullName() }}</span></strong>,
                     ЖСН
-                    <span style="">{{ $application->loan['iin'] }}</span>, екінші тараптан, бірге &laquo;Тараптар&raquo;,
+                    <span style="">{{ $application->getIin() }}</span>, екінші тараптан, бірге &laquo;Тараптар&raquo;,
                     ал жеке-жеке &laquo;Тарап&raquo; деп аталатын тараптар, төмендегі туралы осы Микрокредитті (кепілмен
                     қамтамасыз етілген) беру туралы <strong>Кепіл билетті&nbsp;</strong>(бұдан әрі - <strong>Кепіл
                         билет</strong>) жасады:&nbsp; <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
@@ -1769,7 +1769,7 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; page-break-inside:avoid; font-size:12pt;">
                     &laquo;Қазақстан Халық банкі&raquo; АҚ</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; page-break-inside:avoid; font-size:12pt;">
-                    БСК ******** БСН (банк) &ndash; 940140000385 БЕК 15</p>
+                    БСК HSBKKZKX БСН (банк) &ndash; 940140000385 БЕК 15</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; page-break-inside:avoid; font-size:12pt;">
                     электронды пошта: <a href="mailto:kfm@creditline.kz" style="text-decoration:none;"><u><span
                                 style="color:#0000ff;">kfm@creditline.kz</span></u></a></p>

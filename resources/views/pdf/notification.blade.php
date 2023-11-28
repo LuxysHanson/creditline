@@ -43,7 +43,7 @@
             {{ $application->address['locality'] ?? '' }}, улица
             <span style="">{{ $application->address['street'] ?? '' }}.</span><strong>&nbsp;</strong></li>
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Залогодержатель &ndash; ТОО &laquo;Ломбард &laquo;CreditLine&raquo;, БИН 100740008000, г. Алматы, ул. Ауэзова, дом 163А, н. п. 207.</li>
-        <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Документ, содержащий условия о залоге: Залоговый билет № <span style="">_________________</span> от
+        <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Документ, содержащий условия о залоге: Залоговый билет № <span style="">{{ $application->getNumberDoc() }}</span> от
             <span style="">{{ $date->format('d.m.Y') }}</span> года (далее &ndash; Залоговый билет), заключенный в г. Алматы.</li>
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Сведения о предмете залога:</li>
     </ol>
