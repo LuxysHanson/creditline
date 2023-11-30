@@ -146,9 +146,9 @@
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">1.1.2. Микрокредит
                     бойынша артық төлем сомасы:</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">- сыйақы мөлшері <span
-                        style="">_______________</span>&nbsp; тенге.</p>
+                        style="">{{ $application->getMonthlyPay() }}</span>&nbsp; тенге.</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">- тұрақсыздық айыбы -
-                    мерзімі өткізіп алынған тоқсан күн ішінде төлем мерзімі өткен әрбір күн үшін -0,5 % мөлшерінде;
+                    мерзімі өткізіп алынған тоқсан күн ішінде төлем мерзімі өткен әрбір күн үшін 0,1% мөлшерінде;
                     мерзімін өткізіп алудың&nbsp; тоқсан күні өткеннен кейін төлем мерзімі өткен әрбір күн үшін 0,03%
                     мөлшерінде.</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">- Қарыз алушының кепіл
@@ -306,11 +306,10 @@
                     обеспеченности и возвратности.</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">1.1.2. Сумма переплаты&nbsp;
                     по Микрокредиту составляет:</p>
-                @php($schedule = $application->buildSchedule())
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">- вознаграждение в
-                    размере  @if($application->loan['repayment_type']==2)<span style=""><?=(int) str_replace(' ', '', $schedule['calc'] ?? '')?></span>@endif @if($application->loan['repayment_type']==1)<span style=""><?=(int) str_replace(' ', '', $schedule['calc'] ?? '')*$application->getDeadline()?></span>@endif тенге.</p>
+                    размере  <span style="">{{ $application->getMonthlyPay() }}</span> тенге.</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">&nbsp;- неустойка,&nbsp;
-                    в размере 0,5% за каждый день просрочки платежа в течение девяносто дней просрочки, в размере 0,03 %
+                    в размере 0,1% за каждый день просрочки платежа в течение девяносто дней просрочки, в размере 0,03 %
                     за каждый день просрочки по истечении девяносто дней просрочки.</p>
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt;">- штраф, в размере 3%
                     от суммы Микрокредита за не передачу Заемщиком предмета залога.</p>

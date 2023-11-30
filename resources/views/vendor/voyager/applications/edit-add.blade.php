@@ -877,12 +877,13 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        @php($paymentType = $application->loan['repayment_type'] ?? 2)
                                         <div class="col-md-6">
                                             <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
     'hash' => $dataTypeContent->id_hash, 'type' => 'repayment_schedule'
 ]) }}">График погашения микрокредита</a>
                                             <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
-    'hash' => $dataTypeContent->id_hash, 'type' => 'pledge_ticket'
+    'hash' => $dataTypeContent->id_hash, 'type' => 'pledge_ticket_'. $paymentType
 ]) }}">Залоговый билет с правом управления транспортным средством</a>
                                             <a target="_blank" style="font-weight: bold;display: block" href="{{ route('pdf.generate', [
     'hash' => $dataTypeContent->id_hash, 'type' => 'notification'

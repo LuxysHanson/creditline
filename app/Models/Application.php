@@ -261,4 +261,11 @@ class Application extends Model
         return 'U'.str_pad($this->id, 9, 0, STR_PAD_LEFT);
     }
 
+    public function getMonthlyPay()
+    {
+        $payment = explode(' ', $this->loan['monthly_pay']);
+        unset($payment[array_key_last($payment)]);
+        return implode(' ', $payment);
+    }
+
 }

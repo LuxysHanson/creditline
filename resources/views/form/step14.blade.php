@@ -1,4 +1,5 @@
 <div class="container">
+    @php($paymentType = $application->loan['repayment_type'] ?? 2)
     <div class="img">
         <img src="/assets/images/icons/g2232.svg" alt="g2232-icon">
     </div>
@@ -12,7 +13,7 @@
         </div>
     </a>
     <a class="pdf" href="{{ route('pdf.generate', [
-    'hash' => $application->id_hash, 'type' => 'pledge_ticket'
+    'hash' => $application->id_hash, 'type' => 'pledge_ticket_'. $paymentType
 ]) }}" target="_blank">
         <div class="pdf_list">
             <img src="/assets/images/icons/docs.svg" alt="docs-icon2">

@@ -12,8 +12,10 @@ final class PdfTemplatesEnum extends Enum
     const TEMPLATE_3 = 'agreement';
     const TEMPLATE_4 = 'information_form';
     const TEMPLATE_5 = 'repayment_schedule';
-    const TEMPLATE_6 = 'pledge_ticket';
+//    const TEMPLATE_6 = 'pledge_ticket';
     const TEMPLATE_7 = 'notification';
+    const TEMPLATE_8 = 'pledge_ticket_1';
+    const TEMPLATE_9 = 'pledge_ticket_2';
 
     public static function labelsByStep9()
     {
@@ -29,8 +31,10 @@ final class PdfTemplatesEnum extends Enum
     {
         return [
             self::TEMPLATE_5 => __('form.step14.doc5_name'),
-            self::TEMPLATE_6 => __('form.step14.doc6_name'),
+//            self::TEMPLATE_6 => __('form.step14.doc6_name'),
             self::TEMPLATE_7 => __('form.step14.doc7_name'),
+            self::TEMPLATE_8 => __('form.step14.doc6_name'),
+            self::TEMPLATE_9 => __('form.step14.doc6_name'),
         ];
     }
 
