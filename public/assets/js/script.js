@@ -1479,24 +1479,24 @@ $(document).ready(() => {
 })
 
 function valid7() {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            let cache = cacheJS.get('anketa')
-            const crd = pos.coords;
-            cache.longitude = crd.longitude;
-            cache.latitude = crd.latitude;
-            cache.accuracy = crd.accuracy;
-            cacheJS.set('anketa', cache, 31104, 'context');
-            console.log(cache)
-        }, (err) => {
-            toastr.error(err.message)
-        }, {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0,
-        });
+        // navigator.geolocation.getCurrentPosition((pos) => {
+        //     let cache = cacheJS.get('anketa')
+        //     const crd = pos.coords;
+        //     cache.longitude = crd.longitude;
+        //     cache.latitude = crd.latitude;
+        //     cache.accuracy = crd.accuracy;
+        //     cacheJS.set('anketa', cache, 31104, 'context');
+        //     console.log(cache)
+        // }, (err) => {
+        //     toastr.error(err.message)
+        // }, {
+        //     enableHighAccuracy: true,
+        //     timeout: 5000,
+        //     maximumAge: 0,
+        // });
 
     let cache = cacheJS.get('anketa');
-    console.log($('#equalAddress')[0].checked)
+    // console.log($('#equalAddress')[0].checked)
     if ($('#equalAddress')[0].checked) {
         if (cache.locality !== '' && cache.street !== '' && cache.numberHome !== '') {
             $('.block7 .nextApplication').addClass('active');
