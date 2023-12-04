@@ -135,7 +135,7 @@ $(function () {
                     cache: false,
                     contentType: false,
                     processData: false,
-                    beforeSubmit: function () {
+                    beforeSend: function () {
                         screenModal.find('.global-preloader').show();
                     },
                     error: function () {

@@ -1718,7 +1718,7 @@ $('.block12 .box .filer input').on('change', (e) => {
 
 function valid12() {
     if ($('#auto1').val() !== '' && $('#auto2').val() !== '' && $('#auto3').val() !== '' && $('#auto4').val() !== '' && $('#auto5').val() !== '' && $('#auto6').val() !== '') {
-        $('.block12 .goPushAll').addClass('active');
+        setTimeout(function () { $('.block12 .goPushAll').addClass('active') }, 800)
         return true;
     } else {
         $('.block12 .goPushAll').removeClass('active');
