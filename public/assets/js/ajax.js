@@ -120,7 +120,7 @@ $(function () {
             cacheJS.set('anketa', cache, 31104, 'context');
 
             var form = $("." + formName + "Form");
-            var screenModal = $(this).parents('.screenModal');
+            var preloader = $(this).parents('.screenModal').find('.global-preloader');
             $("#" + formName).click();
             $("#" + formName).on('change', function (e) {
                 e.preventDefault();
@@ -136,14 +136,14 @@ $(function () {
                     contentType: false,
                     processData: false,
                     beforeSend: function () {
-                        screenModal.find('.global-preloader').show();
+                        preloader.show();
                     },
                     error: function () {
-                        screenModal.find('.global-preloader').hide();
+                        preloader.hide();
                         toastr.error(app.errorMsg)
                     },
                     complete: function (xhr) {
-                        screenModal.find('.global-preloader').hide();
+                        preloader.hide();
                         if (xhr.status === 200) {
                             //screenModal.find('.bannerPhoto img').attr('src', xhr.responseJSON.url)
                             $("#" + formName).attr('value', xhr.responseJSON.url);
