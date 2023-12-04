@@ -311,7 +311,7 @@
                                                      style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                             </div>
                                         @endif
-                                        <!--input id="a_passport" type="file" name="doc_images[passport]" accept="image/*"-->
+                                        <input id="a_passport" type="hidden" name="doc_images[passport]" accept="image/*" value="{{$passport}}">
                                     </div>
 
                                     @php($with_passport = $dataTypeContent->doc_images['with_passport'] ?? '')
@@ -327,8 +327,7 @@
                                                      style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                             </div>
                                         @endif
-                                        <!--input id="a_with_passport" type="file" name="doc_images[with_passport]"
-                                               accept="image/*"-->
+                                        <input id="a_with_passport" type="hidden" name="doc_images[with_passport]" accept="image/*" value="{{$with_passport}}">
                                     </div>
 
                                 @else
@@ -346,8 +345,7 @@
                                                      style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                             </div>
                                         @endif
-                                        <!--input id="a_front_side" type="file" name="doc_images[front_side]"
-                                               accept="image/*"-->
+                                        <input id="a_front_side" type="hidden" name="doc_images[front_side]" accept="image/*" value="{{$front_side}}">
                                     </div>
 
                                     @php($back_side = $dataTypeContent->doc_images['back_side'] ?? '')
@@ -363,8 +361,7 @@
                                                      style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                             </div>
                                         @endif
-                                        <!--input id="a_back_side" type="file" name="doc_images[back_side]"
-                                               accept="image/*"-->
+                                        <input id="a_back_side" type="hidden" name="doc_images[back_side]" accept="image/*" value="{{$back_side}}">
                                     </div>
 
                                     @php($selfie = $dataTypeContent->doc_images['selfie'] ?? '')
@@ -380,7 +377,7 @@
                                                      style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                             </div>
                                         @endif
-                                        <!--input id="a_selfie" type="file" name="doc_images[selfie]" accept="image/*"-->
+                                        <input id="a_selfie" type="hidden" name="doc_images[selfie]" accept="image/*" value="{{$selfie}}">
                                     </div>
 
                                 @endif
@@ -658,8 +655,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="ac_front_side"  type="file" name="car_images_1[front_side]"
-                                           accept="image/*"-->
+                                    <input id="ac_front_side"  type="hidden" name="car_images_1[front_side]" accept="image/*" value="{{$c_front_side}}">
                                 </div>
 
                                 @php($c_back_side = $dataTypeContent->car_images_1['back_side'] ?? '')
@@ -675,8 +671,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="ac_back_side"  type="file" name="car_images_1[back_side]"
-                                           accept="image/*"-->
+                                    <input id="ac_back_side"  type="hidden" name="car_images_1[back_side]" accept="image/*" value="{{$c_back_side}}">
                                 </div>
 
                             @endif
@@ -730,8 +725,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto1" type="file" name="car_images_2[auto1]"
-                                           accept="image/*"-->
+                                    <input id="a_auto1" type="hidden" name="car_images_2[auto1]" accept="image/*" value="{{$auto1}}">
                                 </div>
 
                                 @php($auto2 = $dataTypeContent->car_images_2['auto2'] ?? '')
@@ -747,8 +741,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto2" type="file" name="car_images_2[auto2]"
-                                           accept="image/*"-->
+                                    <input id="a_auto2" type="hidden" name="car_images_2[auto2]" accept="image/*" value="{{$auto2}}">
                                 </div>
 
                                 @php($auto3 = $dataTypeContent->car_images_2['auto3'] ?? '')
@@ -764,8 +757,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto3" type="file" name="car_images_2[auto3]"
-                                           accept="image/*"-->
+                                    <input id="a_auto3" type="hidden" name="car_images_2[auto3]" accept="image/*" value="{{$auto3}}">
                                 </div>
 
                                 @php($auto4 = $dataTypeContent->car_images_2['auto4'] ?? '')
@@ -781,8 +773,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto4" type="file" name="car_images_2[auto4]"
-                                           accept="image/*"-->
+                                    <input id="a_auto4" type="hidden" name="car_images_2[auto4]" accept="image/*" value="{{$auto4}}">
                                 </div>
 
                                 @php($auto5 = $dataTypeContent->car_images_2['auto5'] ?? '')
@@ -798,8 +789,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto5" type="file" name="car_images_2[auto5]"
-                                           accept="image/*"-->
+                                    <input id="a_auto5" type="hidden" name="car_images_2[auto5]" accept="image/*" value="{{$auto5}}">
                                 </div>
 
                                 @php($auto6 = $dataTypeContent->car_images_2['auto6'] ?? '')
@@ -815,8 +805,7 @@
                                                  style="max-width:200px; height:auto; clear:both; display:block; padding:2px; border:1px solid #ddd; margin-bottom:10px;">
                                         </div>
                                     @endif
-                                    <!--input id="a_auto6" type="file" name="car_images_2[auto6]"
-                                           accept="image/*"-->
+                                    <input id="a_auto6" type="hidden" name="car_images_2[auto6]" accept="image/*" value="{{$auto6}}">
                                 </div>
 
                             @endif
