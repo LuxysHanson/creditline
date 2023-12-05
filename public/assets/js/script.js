@@ -1299,10 +1299,10 @@ $(document).ready(() => {
         cacheJS.set('anketa', cache, 31104, 'context');
         valid4()
     })
-    $('.block5 .box .filer input').on('change', (e) => {
-        valid5()
-        closeScreenModal()
-    })
+    // $('.block5 .box .filer input').on('change', (e) => {
+    //     valid5()
+    //     closeScreenModal()
+    // })
     for (let k = 0; k < $('.block5 .select input').length; k++) {
         $('.block5 .select input').eq(k).change(() => {
             for (let l = 0; l < $('.block5 .box').length; l++) {
@@ -1318,7 +1318,7 @@ $(document).ready(() => {
 function valid5() {
     if ($('.block5 .select input:checked').val() === '1') {
         if ($('#frontScreen').val() !== '' && $('#backScreen').val() !== '' && $('#selfieScreen').val() !== '') {
-            $('.block5 .personalData').addClass('active');
+            setTimeout(function () { $('.block5 .personalData').addClass('active') }, 800);
             return true;
         } else {
             $('.block5 .personalData').removeClass('active');
@@ -1326,7 +1326,7 @@ function valid5() {
         }
     } else {
         if ($('#passwordScreen').val() !== '' && $('#withPasswordScreen').val() !== '') {
-            $('.block5 .personalData').addClass('active');
+            setTimeout(function () { $('.block5 .personalData').addClass('active') }, 800);
             return true;
         } else {
             $('.block5 .personalData').removeClass('active');
@@ -1653,9 +1653,9 @@ $('.block9 .goTechPhotoAuto').click(() => {
       });*/
 })
 
-$('.block10 .box .filer input').on('change', (e) => {
-    closeScreenModal()
-})
+// $('.block10 .box .filer input').on('change', (e) => {
+//     closeScreenModal()
+// })
 // перелючение на след шаг со 10 к 11 ому
 $('.block10 .goApplicationScreenAuto').click(() => {
     $('.block10').toggleClass('active');
@@ -1667,14 +1667,14 @@ $('.block10 .goPhotoAuto').click(() => {
         $('.block11').toggleClass('active');
     }
 })
-$('.block10 .box .filer input').on('change', (e) => {
-    valid10()
-    closeScreenModal()
-})
+// $('.block10 .box .filer input').on('change', (e) => {
+//     valid10()
+//     closeScreenModal()
+// })
 
 function valid10() {
     if ($('#frontScreenAuto').val() !== '' && $('#backScreenAuto').val() !== '') {
-        $('.block10 .goPhotoAuto').addClass('active');
+        setTimeout(function () { $('.block10 .goPhotoAuto').addClass('active') }, 800);
         return true;
     } else {
         $('.block10 .goPhotoAuto').removeClass('active');
@@ -1711,10 +1711,10 @@ $('.block12 .goPushAll').click(() => {
          });*/
     }
 })
-$('.block12 .box .filer input').on('change', (e) => {
-    valid12()
-    closeScreenModal()
-})
+// $('.block12 .box .filer input').on('change', (e) => {
+//     valid12()
+//     closeScreenModal()
+// })
 
 function valid12() {
     if ($('#auto1').val() !== '' && $('#auto2').val() !== '' && $('#auto3').val() !== '' && $('#auto4').val() !== '' && $('#auto5').val() !== '' && $('#auto6').val() !== '') {
