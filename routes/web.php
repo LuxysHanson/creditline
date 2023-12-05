@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/page-blocks/delete-media',[PageBlockController::class, 'removeMedia'])->name('voyager.page-blocks.media-remove');
     Route::post('/applications/{id}/reject',[ApplicationController::class, 'reject'])->name('voyager.application.reject');
     Route::post('/applications/{id}/accept',[ApplicationController::class, 'accept'])->name('voyager.application.accept');
+    Route::post('/applications/{id}/cancel',[ApplicationController::class, 'cancel'])->name('voyager.application.cancel');
     Route::get('/applications/{id}/block',[ApplicationController::class, 'block'])->name('voyager.application.block');
     Route::get('/applications/{id}/unblock',[ApplicationController::class, 'unblock'])->name('voyager.application.unblock');
 });

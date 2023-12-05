@@ -115,4 +115,9 @@ class Common
         return $link;
     }
 
+    public static function getTicketId($id)
+    {
+        return 'U'.str_pad($id, 9, 0, STR_PAD_LEFT);
+    }
+
 }

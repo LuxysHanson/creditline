@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Common;
 use Arr;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ class Application extends Model
     const STATUS_NEW = 0;
     const STATUS_CONFIRMED = 1;
     const STATUS_NOT_CONFIRMED = 2;
+    const STATUS_CANCELED = 3;
     const STATUS_BLOCKED = -1;
 
     const FAMILY_STATUS_1 = 0;
@@ -47,7 +49,8 @@ class Application extends Model
         'status',
         'step',
         'id_hash',
-        'bitrix_id'
+        'bitrix_id',
+        'ticket_id' // Номер залогого билета
     ];
 
     protected $casts = [
@@ -258,7 +261,33 @@ class Application extends Model
 
     public function getNumberDoc()
     {
-        return 'U'.str_pad($this->id, 9, 0, STR_PAD_LEFT);
+
+        if ($this->step > 13 && !in_array($this->status, [
+                static::STATUS_NOT_CONFIRMED,
+                static::STATUS_CANCELED
+            ])) {
+            return Common::getTicketId($this->ticket_id);
+        }
+
+        return Common::getTicketId($this->id);
+    }
+
+    public function generateTicketId(): int
+    {
+
+        $applications = Application::query()
+            ->where('id', '<>', $this->id)
+            ->where('status', '<>', static::STATUS_CANCELED)
+            ->whereNotNull('ticket_id')
+            ->orderByDesc('id')
+            ->get();
+
+        if ($applications->isNotEmpty()) {
+            $ticketId = $applications->first()->ticket_id;
+            return $ticketId + 1;
+        }
+
+        return 1;
     }
 
     public function getMonthlyPay()

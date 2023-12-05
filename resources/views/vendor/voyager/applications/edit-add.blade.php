@@ -54,8 +54,11 @@
                                 <div class="alert alert-success">Заявка принято</div>
                             @endif
                             @if($dataTypeContent->status == \App\Models\Application::STATUS_NOT_CONFIRMED)
-                                <div class="alert alert-warning">Заявка отказано</div>
+                                <div class="alert alert-danger">Заявка отказано</div>
                             @endif
+                                @if($dataTypeContent->status == \App\Models\Application::STATUS_CANCELED)
+                                    <div class="alert alert-warning">Заявка отменена</div>
+                                @endif
                                 <input id="status" type="hidden" name="status" class="form-control" value="{{ $dataTypeContent->status }}">
                             <div class="form-group">
                                 <label for="a_step">Текущий шаг</label>
@@ -845,6 +848,9 @@
                                         @if($dataTypeContent->status == \App\Models\Application::STATUS_NOT_CONFIRMED)
                                             <div class="alert alert-warning">Заявка отказано</div>
                                         @endif
+                                            @if($dataTypeContent->status == \App\Models\Application::STATUS_CANCELED)
+                                                <div class="alert alert-warning">Заявка отменена</div>
+                                            @endif
                                     @endif
                                 </div>
 
@@ -908,6 +914,10 @@
                             @section('submit-buttons')
                                 <button type="submit"
                                         class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                                @if($dataTypeContent->status != \App\Models\Application::STATUS_CANCELED)
+                                    <button type="button" onclick="applicationCancel(this)"
+                                            class="btn btn-warning cancel">Отменить заявку</button>
+                                @endif
                             @stop
                             @yield('submit-buttons')
                         </div>
@@ -1017,6 +1027,30 @@
                     step: 14,
                     hash: '{{ $dataTypeContent->id_hash}}',
                     assessed: assessed
+                },
+                success: function (response) {
+                    if (response.status === 'success') {
+                        window.location.reload()
+                    } else {
+                        toastr.error(app.errorMsg)
+                    }
+                },
+                error: function (data) {
+                    console.log(data)
+                    toastr.error(app.errorMsg)
+                }
+            });
+        }
+
+        function applicationCancel(that) {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '{{ route('voyager.application.cancel', $dataTypeContent) }}',
+                type: "POST",
+                data: {
+                    hash: '{{ $dataTypeContent->id_hash}}'
                 },
                 success: function (response) {
                     if (response.status === 'success') {

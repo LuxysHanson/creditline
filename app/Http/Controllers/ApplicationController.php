@@ -28,7 +28,7 @@ class ApplicationController extends Controller
         $this->applicationService = app(ApplicationService::class);
     }
 
-    # Принять заявку
+    # Отказать заявку
     public function reject(Request $request)
     {
 
@@ -52,7 +52,7 @@ class ApplicationController extends Controller
         return response()->json(['status' => 'error'], 500);
     }
 
-    # Отказать заявку
+    # Принять заявку
     public function accept(Request $request): JsonResponse
     {
 
@@ -67,6 +67,7 @@ class ApplicationController extends Controller
             $application->status = Application::STATUS_CONFIRMED;
             $application->step = (int) $request->input('step');
             $application->assessed = $request->post('assessed');
+            $application->ticket_id = $application->generateTicketId();
             if ($application->save()) {
                 $sendSms = new SendSms();
                 $sendSms->phone = $application->phone;
@@ -91,6 +92,22 @@ class ApplicationController extends Controller
         }
 
         return response()->json(['status' => 'error'], 500);
+    }
+
+    # Отменить заявку
+    public function cancel(Request $request)
+    {
+
+        $application = Application::query()
+            ->where('id_hash', $request->post('hash'))
+            ->firstOrFail();
+
+        $application->update([
+            'status' => Application::STATUS_CANCELED,
+            'ticket_id' => null
+        ]);
+
+        return response()->json(['status' => 'success']);
     }
 
     # Заблокировать заявку
@@ -133,4 +150,5 @@ class ApplicationController extends Controller
 
         return back()->with('message', 'Заявка успешно разблокирована!');
     }
+
 }
