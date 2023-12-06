@@ -102,12 +102,16 @@ class ApplicationController extends Controller
             ->where('id_hash', $request->post('hash'))
             ->firstOrFail();
 
-        $application->update([
-            'status' => Application::STATUS_CANCELED,
-            'ticket_id' => null
-        ]);
+        if ($this->smsService->sendSMSMessage($application->phone, "Вам отказано в микрокредите")) {
+            $application->update([
+                'status' => Application::STATUS_CANCELED,
+                'ticket_id' => null
+            ]);
 
-        return response()->json(['status' => 'success']);
+            return response()->json(['status' => 'success']);
+        }
+
+        return response()->json(['status' => 'error'], 500);
     }
 
     # Заблокировать заявку
