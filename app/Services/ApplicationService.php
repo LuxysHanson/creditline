@@ -22,7 +22,7 @@ class ApplicationService
         $this->smsService = app(SmsService::class);
     }
 
-    public function create(Request $request, Agent $agent)
+    public function create(Request $request)
     {
 
         $phone = $request->post('phone');
@@ -42,6 +42,7 @@ class ApplicationService
         $application->phone = $phone;
         $application->id_hash = md5(uniqid().mt_rand());
 
+        $agent = new Agent();
         $position = Location::get($request->ip());
         $application->data = [
             'ip'        => $request->ip(),
