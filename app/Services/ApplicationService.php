@@ -22,7 +22,7 @@ class ApplicationService
         $this->smsService = app(SmsService::class);
     }
 
-    public function create(Request $request)
+    public function create(Request $request, Agent $agent)
     {
 
         $phone = $request->post('phone');
@@ -38,14 +38,11 @@ class ApplicationService
         if ($oldApplication)
             return $oldApplication;
 
-//        $position = Location::get($request->ip());
-//        dd($position);
-
         $application = new Application();
         $application->phone = $phone;
         $application->id_hash = md5(uniqid().mt_rand());
 
-        $agent = new Agent();
+        $position = Location::get($request->ip());
         $application->data = [
             'ip'        => $request->ip(),
             'device'    => $agent->device(),
@@ -54,6 +51,8 @@ class ApplicationService
             'browser'   => $agent->browser(),
             'browser_v' => $agent->version($agent->browser()),
             'languages' => $agent->languages(),
+            'latitude' => $position->latitude ?? null,
+            'longitude' => $position->longitude ?? null
         ];
         $application->step = 1;
         if (!$application->save()) {
