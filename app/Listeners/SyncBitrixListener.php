@@ -38,6 +38,8 @@ class SyncBitrixListener implements ShouldQueue
         'doc_type' => 'UF_CRM_1697095504282',
         'selfie' => 'UF_CRM_1697095585048',
         'sms_2' => 'UF_CRM_1699806985731',
+        'latitude' => 'UF_CRM_1699983391221',
+        'longitude' => 'UF_CRM_1699983382179',
         'id_cart' => [
             'front' => 'UF_CRM_1697095546685',
             'back' => 'UF_CRM_1697095570750',
@@ -72,7 +74,7 @@ class SyncBitrixListener implements ShouldQueue
         match ($currentStep) {
             3, 2 => $this->sendCreditInfo($data, $application->bitrix_id),
             4 => $this->sendCarInfo($data, $application->bitrix_id),
-            5 => $this->sendDocumentPhoto($data, $application->bitrix_id),
+            5 => $this->sendDocumentPhoto($data, $application),
             6 => $this->sendSelfInfo($data, $application),
             7 => $this->sendLocationInfo($data, $application->bitrix_id),
             8 => $this->signApplication($application, $application->bitrix_id),
@@ -134,7 +136,7 @@ class SyncBitrixListener implements ShouldQueue
         ]);
     }
 
-    public function sendDocumentPhoto(array $data, int $id)
+    public function sendDocumentPhoto(array $data, Application $application)
     {
         $docType = (int)$data['doc_type'];
         if ($docType === 1) {
@@ -143,17 +145,21 @@ class SyncBitrixListener implements ShouldQueue
                 self::CRM_FIELDS['stage'] => 'C4:PREPAYMENT_INVOICE',
                 self::CRM_FIELDS['id_cart']['front'] => $this->prepareFile($data['front_side']),
                 self::CRM_FIELDS['id_cart']['back'] => $this->prepareFile($data['back_side']),
-                self::CRM_FIELDS['selfie'] => $this->prepareFile($data['selfie'])
+                self::CRM_FIELDS['selfie'] => $this->prepareFile($data['selfie']),
+                self::CRM_FIELDS['latitude'] => $application->getLatitude(),
+                self::CRM_FIELDS['longitude'] => $application->getLongitude(),
             ];
         } else {
             $data = [
                 self::CRM_FIELDS['doc_type'] => 303,
                 self::CRM_FIELDS['stage'] => 'C4:PREPAYMENT_INVOICE',
                 self::CRM_FIELDS['id_cart']['front'] => $this->prepareFile($data['passport']),
-                self::CRM_FIELDS['selfie'] => $this->prepareFile($data['with_passport'])
+                self::CRM_FIELDS['selfie'] => $this->prepareFile($data['with_passport']),
+                self::CRM_FIELDS['latitude'] => $application->getLatitude(),
+                self::CRM_FIELDS['longitude'] => $application->getLongitude(),
             ];
         }
-        return $this->updateDeal($id, $data);
+        return $this->updateDeal($application->bitrix_id, $data);
     }
 
     public function prepareFile(?string $path): array

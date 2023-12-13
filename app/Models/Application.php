@@ -297,4 +297,14 @@ class Application extends Model
         return implode(' ', $payment);
     }
 
+    public function getLatitude()
+    {
+        return $this->data['latitude'] ?? null;
+    }
+
+    public function getLongitude()
+    {
+        return $this->data['longitude'] ?? null;
+    }
+
 }
