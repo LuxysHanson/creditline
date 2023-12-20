@@ -994,10 +994,19 @@ $('.block2 .btn_again .btn2').click(() => {
     $('.block2 .btn_again .btn2').toggleClass('active');
     $('.block2 .btn_again .btn1').text('Запросить код через 120 сек.')
     timerAgain()
-    //sendGetCode()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $(this).parent('.btn_again').data('id');
+    data.phoneNumberString = $(this).parent('.btn_again').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(2);
 });
 if ($('.block2 .btn_again').length !== 0) {
     timerAgain()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $('.block2 .btn_again').data('id');
+    data.phoneNumberString = $('.block2 .btn_again').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(2, false);
 }
 // перелючение на след шаг со 1 к 2 ому
 /*
@@ -1628,29 +1637,23 @@ $('.block9 .btn_again2 .btn2').click(() => {
     $('.block9 .btn_again2 .btn2').toggleClass('active');
     $('.block9 .btn_again2 .btn1').text('Запросить код через 120 сек.')
     timerAgain2()
-    //sendGetCode2()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $(this).parent('.btn_again2').data('id');
+    data.phoneNumberString = $(this).parent('.btn_again2').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(9);
 });
+if ($('.block9 .btn_again2').length !== 0) {
+    timerAgain2()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $('.block9 .btn_again2').data('id');
+    data.phoneNumberString = $('.block9 .btn_again2').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(9, false);
+}
 $('.block9 .goMainApplication').click(() => {
     $('.block9').toggleClass('active');
     $('.block8').toggleClass('active');
-})
-
-$('.block9 .goTechPhotoAuto').click(() => {
-    let cache = cacheJS.get('anketa');
-    /*  sendValidCode2().then((e) => {
-          console.log(e)
-          if (e) {
-              cache.validate2 = true;
-              cacheJS.set('anketa', cache, 31104, 'context');
-          } else {
-              cache.validate2 = false;
-              cacheJS.set('anketa', cache, 31104, 'context');
-          }
-          if (cacheJS.get('anketa').validate2) {
-              $('.block9').toggleClass('active');
-              $('.block10').toggleClass('active');
-          }
-      });*/
 })
 
 // $('.block10 .box .filer input').on('change', (e) => {
@@ -1747,8 +1750,20 @@ $('.block14 .btn_again3 .btn2').click(() => {
     $('.block14 .btn_again3 .btn2').toggleClass('active');
     $('.block14 .btn_again3 .btn1').text('Запросить код через 120 сек.')
     timerAgain3()
-    //sendGetCode3()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $(this).parent('.btn_again3').data('id');
+    data.phoneNumberString = $(this).parent('.btn_again3').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(14);
 });
+if ($('.block14 .btn_again3').length !== 0) {
+    timerAgain3()
+    let data = cacheJS.get('anketa');
+    data.applicationId = $('.block14 .btn_again3').data('id');
+    data.phoneNumberString = $('.block14 .btn_again3').data('phone');
+    cacheJS.set('anketa', data, 432000, 'context');
+    sendGetCode(14, false);
+}
 $('.block14 .goFinal').click(() => {
     let cache = cacheJS.get('anketa');
     if ($('.block14 .goFinal').hasClass('active')) {

@@ -5,6 +5,7 @@
 <script src="{{ asset('/assets/js/cacheJS.min.js') }}" defer></script>
 <script src="{{ asset('/assets/js/iincheck.min.js') }}" defer></script>
 <script src="{{ asset('/assets/js/date-ru-RU.js') }}" defer></script>
+<script src="{{ asset('/assets/js/ajax.js?v='. time()) }}" defer></script>
 <script src="{{ asset('/assets/js/script.js?v='. time()) }}" defer></script>
 <script src="{{ asset('/assets/js/mask.js?v='. time()) }}" defer></script>
 <script type="text/javascript">
@@ -17,5 +18,3 @@
 </script>
 
 @yield('scripts')
-
-<script src="{{ asset('/assets/js/ajax.js?v='. time()) }}"></script>
