@@ -62,7 +62,7 @@ function closeTable(elem) {
     }
 }
 
-if ($(".a_locality").length !== 0) {
+function localitiesList(searchInput, resultsList) {
     fetch('/assets/csv/locality.csv')
         .then(response => response.text())
         .then(data => {
@@ -73,9 +73,6 @@ if ($(".a_locality").length !== 0) {
                 const [id, parentId, code, name] = line.split(';');
                 locations.push({id, parentId, code, name});
             }
-
-            const searchInput = document.getElementById('search-input');
-            const resultsList = document.getElementById('results-list');
 
             function filterResults(query) {
                 const filteredLocations = locations.filter(location => {
@@ -108,6 +105,18 @@ if ($(".a_locality").length !== 0) {
             renderSelectInput();
         })
         .catch(error => console.error(error));
+}
+
+if ($(".a_locality").length !== 0) {
+    const searchInput = document.getElementById('search-input');
+    const resultsList = document.getElementById('results-list');
+    localitiesList(searchInput, resultsList)
+}
+
+if ($(".a_locality2").length !== 0) {
+    const searchInput = document.getElementById('search-input2');
+    const resultsList = document.getElementById('results-list2');
+    localitiesList(searchInput, resultsList)
 }
 
 if ($(".block6").length !== 0) {

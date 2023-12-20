@@ -10,7 +10,6 @@
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step7.locality')</div>
-
         <div class="input_input">
             <input class="a_locality" type="text" name="locality" autocomplete="off" id="search-input" value="{{ $application->address['locality'] ?? '' }}">
             <ul class="select-items select-hide" id="results-list"></ul>
@@ -54,8 +53,9 @@
         <div class="input">
             <div class="input_title">@lang('form.step7.locality')</div>
             <div class="input_input">
-                <input class="a_locality2" type="text" name="locality2" autocomplete="off"
+                <input class="a_locality2" type="text" name="locality2" autocomplete="off" id="search-input2"
                        value="{{ $application->address['locality2'] ?? '' }}">
+                <ul class="select-items select-hide" id="results-list2"></ul>
             </div>
         </div>
         <div class="input">
