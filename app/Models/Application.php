@@ -110,10 +110,13 @@ class Application extends Model
         ];
     }
 
-    public function getAddress(): string
+    public function getAddress($is_short = false): string
     {
-        return ($this->address['locality'] ?? '') . ', ' . ($this->address['street'] ?? '')
-            . ', дом ' . ($this->address['number_home'] ?? '') . ', кв. ' . ($this->address['apartment'] ?? '');
+        $address = ($this->address['locality'] ?? '') . ', улица ' . ($this->address['street'] ?? '');
+        if (!$is_short) {
+            $address .= ', дом ' . ($this->address['number_home'] ?? '') . ', кв. ' . ($this->address['apartment'] ?? '');
+        }
+        return $address;
     }
 
     public function getAddress2(): string
@@ -124,6 +127,27 @@ class Application extends Model
 
         return ($this->address['locality2'] ?? '') . ', ' . ($this->address['street2'] ?? '')
             . ', ' . ($this->address['number_home2'] ?? '') . ', ' . ($this->address['apartment2'] ?? '');
+    }
+
+    public function getLocality($is_short = false): string
+    {
+        $equal_address = $this->address['equal_address'] ?? 'false';
+        if ($equal_address == 'false') {
+
+            if (stristr($this->address['locality'], 'Алматы')) {
+                return $this->getAddress($is_short);
+            }
+
+            if (stristr($this->address['locality2'], 'Алматы')) {
+                $address = ($this->address['locality2'] ?? '') . ', улица ' . ($this->address['street2'] ?? '');
+                if (!$is_short) {
+                    $address .= ', дом ' . ($this->address['number_home2'] ?? '') . ', кв. ' . ($this->address['apartment2'] ?? '');
+                }
+                return $address;
+            }
+        }
+
+        return $this->getAddress($is_short);
     }
 
     public function buildSchedule(): array

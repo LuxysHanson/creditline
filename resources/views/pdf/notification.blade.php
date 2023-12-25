@@ -39,9 +39,7 @@
             <span style="">{{ $application->getIin() }},</span> удостоверение личности №
             <span style="">{{ $application->client['number_doc'] ?? '' }},</span> выдано {{ $application->getIssuedByDocument()[$issued_by_doc] ?? '' }} от
             <span style="">&quot;{{ \Carbon\Carbon::make($date_doc)->format('d') }}&quot;</span>
-            <span style="">{{ \App\Enums\MonthEnum::getInTheGenetiveCase(\Carbon\Carbon::make($date_doc)->format('m')) }}</span> {{ \Carbon\Carbon::make($date_doc)->format('Y') }}г., проживающий (-ая) по адресу: Республика Казахстан,
-            {{ $application->address['locality'] ?? '' }}, улица
-            <span style="">{{ $application->address['street'] ?? '' }}.</span><strong>&nbsp;</strong></li>
+            <span style="">{{ \App\Enums\MonthEnum::getInTheGenetiveCase(\Carbon\Carbon::make($date_doc)->format('m')) }}</span> {{ \Carbon\Carbon::make($date_doc)->format('Y') }}г., проживающий (-ая) по адресу: Республика Казахстан, {{ $application->getLocality(true) }}.</li>
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Залогодержатель &ndash; ТОО &laquo;Ломбард &laquo;CreditLine&raquo;, БИН 100740008000, г. Алматы, ул. Ауэзова, дом 163А, н. п. 207.</li>
         <li style="margin-left:41pt; text-align:justify; padding-left:13pt;">Документ, содержащий условия о залоге: Залоговый билет № <span style="">{{ $application->getNumberDoc() }}</span> от
             <span style="">{{ $date->format('d.m.Y') }}</span> года (далее &ndash; Залоговый билет), заключенный в г. Алматы.</li>

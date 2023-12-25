@@ -181,11 +181,7 @@
                     <span style="">{{ $application->getIssuedByDocument()[$issued_by_doc] ?? '' }}</span><span style="">&nbsp;от &quot;</span>
                     <span style="">{{ $date_doc->format('d') }}</span><span style="">&quot;&nbsp;</span>
                     <span style="">{{ \App\Enums\MonthEnum::getInTheGenetiveCase($date_doc->format('m')) }} {{ $date_doc->format('Y') }}</span><span style="">г.,&nbsp;</span></p>
-                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">
-                        {{ $application->address['locality'] ?? '' }}, улица&nbsp;</span>
-                    <span style="">{{ $application->address['street'] ?? '' }}</span><span style="">, дом&nbsp;</span>
-                    <span style="">{{ $application->address['number_home'] ?? '' }}</span><span style="">, квартира&nbsp;</span>
-                    <span style="">{{ $application->address['apartment'] ?? '' }}</span><span style="">.</span></p>
+                <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">{{ $application->getLocality() }}.</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">Whatsapp </span><span style="">{{ $application->phone }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">Электр.почта&nbsp;</span><span style="">{{ $application->loan['email'] }}</span></p>
                 <p style="margin-top:0pt; margin-bottom:0pt; page-break-inside:avoid; font-size:11pt;"><span style="">&nbsp;</span></p>
