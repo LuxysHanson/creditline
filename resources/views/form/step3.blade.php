@@ -65,13 +65,13 @@
                 <div class="select_row type_repayment">
                     <input type="radio" name="repaymentType" id="repaymentType1" value="1"  class="selectPayment block3"
                            @if($type == 1) checked @endif>
-                    <label for="repaymentType1">@lang('general.block3.repayment_type1')</label>
+                    <label for="repaymentType1" onclick="showTable(1)">@lang('general.block3.repayment_type1')</label>
                     <div class="links_row" onclick="showTable(1)">@lang('general.block3.repayment_schedule')</div>
                 </div>
                 <div class="select_row type_repayment">
                     <input type="radio" name="repaymentType" id="repaymentType2" value="2"  class="selectPayment block3"
                            @if($type == 2) checked @endif>
-                    <label for="repaymentType2">@lang('general.block3.repayment_type2')</label>
+                    <label for="repaymentType2" onclick="showTable(2)">@lang('general.block3.repayment_type2')</label>
                     <div class="links_row" onclick="showTable(2)">@lang('general.block3.repayment_schedule')</div>
                 </div>
             </div>

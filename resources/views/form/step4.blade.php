@@ -75,7 +75,7 @@
             <div class="absolute info-2 info-6">@lang('general.block3.doc_date_desc')</div>
         </div>
         <div class="input_input">
-            <input class="a_techPasswordDate" type="date" min="2010-01-01" placeholder="2010-01-01"
+            <input class="a_techPasswordDate" id="a_techPasswordDate" type="text" min="2010-01-01" placeholder="01.01.2010"
                    name="techPasswordDate" required value="{{ $application->car['tech_date'] ?? '' }}">
         </div>
     </div>
@@ -89,3 +89,22 @@
         </div>
     </div>
 </div>
+<script>
+    var today = new Date();
+    var picker = new Pikaday({
+
+        showWeekNumber: false,
+        field: document.getElementById('a_techPasswordDate'),
+        format:'YYYY-MM-DD',
+        onSelect: function() {
+            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            //startDate = today;
+        },
+        maxDate: today,  // maximum/latest date set to today
+        // demo only
+        position: 'top left',
+        reposition: true,
+        theme:'triangle-theme'
+
+    });
+</script>

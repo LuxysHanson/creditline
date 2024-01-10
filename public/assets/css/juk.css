@@ -56,12 +56,12 @@
     display: none;
   }
   .mobile-visible {
-    display: block; 
+    display: block;
   }
   .getPage .input_input {
     display: block;
   }
-  
+
   .getPage .input input {
     min-width: 100%;
   }
@@ -76,7 +76,7 @@
     padding-bottom: 50px;
   }
   .mobile-visible {
-    display: none; 
+    display: none;
   }
   .qr-code {
   	text-align: center;
@@ -117,3 +117,21 @@
     max-width: 75%;
     margin: 0 auto;
 }
+
+#ui-datepicker-div{
+    z-index: 9!important;
+}
+.pika-single {
+    color: #333!important;
+    background: #fff!important;
+    border: 1px solid #ccc!important;
+    border-bottom-color: #bbb!important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+/**
+ * This theme is an example to show how you can add triangles to the dropdowns.
+ */
+.triangle-theme .pika-label:after {
+    content:" \25be";
+}
+.pika-table thead{ display: none}

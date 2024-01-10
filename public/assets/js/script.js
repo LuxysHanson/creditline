@@ -44,12 +44,16 @@ function showTable(elem) {
     } else if (elem_select == 1 && elem == 2) {
         $("input#repaymentType1").prop('checked', false);
         $("input#repaymentType2").prop('checked', true);
+        $(".monthInput").val(12);
+        $(".monthRange").val(12);
         $('.monthInput').parent().find('label').html('Срок микрокредита');
         // allSumMethod();
     } else if ((elem_select == 2 && elem == 1)) {
         $("input#repaymentType2").prop('checked', false);
         $("input#repaymentType1").prop('checked', true);
-        $('.monthInput').parent().find('label').html('Срок микрокредите 1 месяц <span>с возможностью продления срока до</span>');
+        $(".monthInput").val(1);
+        $(".monthRange").val(1);
+        $('.monthInput').parent().find('label').html('Срок микрокредита 1 месяц <span>с возможностью продления срока до</span>');
     }
 }
 
@@ -1091,6 +1095,7 @@ $(document).ready(() => {
 // перелючение на след шаг со 4 к 5 ому
 function valid4() {
     let cache = cacheJS.get('anketa');
+    console.log(cache);
     if (cache.mark !== '' && cache.model !== '' && cache.madeDate !== 0 && cache.color !== '' && cache.carNumber !== '' && cache.vin !== '' && cache.techPassword !== '' && cache.techPasswordDate !== '') {
         $('.block4 .nextScreen').addClass('active');
         return true;
@@ -1116,6 +1121,9 @@ $(document).ready(() => {
 
 //inputs click
 $(document).ready(() => {
+    $( ".monthlyIncome" ).on( "focus", function() {
+        $( this ).val('');
+    } );
     $('.monthlyIncome').on('keyup', (e) => {
         let inputElmValue = e.currentTarget.value;
         inputElmValue = inputElmValue.split(" ₸");
@@ -1306,12 +1314,13 @@ $(document).ready(() => {
         setDateInput(this);
     });
 
-    $('.a_techPasswordDate').on('input', (e) => {
+    $('.a_techPasswordDate').on('blur', (e) => {
         let value = e.currentTarget.value;
         if (value.length > 15) {
             let str = value.substring(0, value.length - 1);
             e.currentTarget.value = str;
         }
+        //console.log(1);
         let cache = cacheJS.get('anketa');
         cache.techPasswordDate = value.toUpperCase();
         cacheJS.set('anketa', cache, 31104, 'context');
@@ -1379,7 +1388,7 @@ $(document).ready(() => {
 function valid6() {
     let cache = cacheJS.get('anketa');
     console.log(cacheJS.get('anketa'))
-    if (cache.patronymic !== '' && cache.name !== '' && cache.surname !== '' && cache.bornDate !== '' && cache.fStatus !== '' && cache.typeDoc !== '' && cache.numberDoc !== '' && cache.dateDoc !== '' && cache.dateDoc2 !== '' && cache.issuedByDoc !== '' && cache.citizenshipDoc !== '') {
+    if (cache.patronymic !== '' && cache.name !== '' && cache.bornDate !== '' && cache.fStatus !== '' && cache.typeDoc !== '' && cache.numberDoc !== '' && cache.dateDoc !== '' && cache.dateDoc2 !== '' && cache.issuedByDoc !== '' && cache.citizenshipDoc !== '') {
         $('.block6 .nextAddress').addClass('active');
         return true;
     } else {

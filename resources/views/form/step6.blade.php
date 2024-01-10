@@ -25,7 +25,7 @@
     <div class="input">
         <div class="input_title">@lang('form.step6.birth_date')</div>
         <div class="input_input">
-            <input class="a_bornDate" type="date" name="bornDate" required
+            <input class="a_bornDate" id="a_bornDate" type="text" name="bornDate" required
                    value="{{ $application->client['birth_date'] ?? '' }}"  max="<?=date('Y-m-d', mktime(0, 0, 0, date("m"),   date("d"),   date("Y")-18))?>">
         </div>
     </div>
@@ -68,14 +68,14 @@
     <div class="input">
         <div class="input_title">@lang('form.step6.date_doc')</div>
         <div class="input_input">
-            <input class="a_dateDoc" type="date" name="dateDoc" required
+            <input class="a_dateDoc" id="a_dateDoc" type="text" name="dateDoc" required
                    value="{{ $application->client['date_doc'] ?? '' }}" max="<?=date('Y-m-d')?>">
         </div>
     </div>
     <div class="input">
         <div class="input_title">@lang('form.step6.date_doc2')</div>
         <div class="input_input">
-            <input class="a_dateDoc2" type="date" name="dateDoc2" required
+            <input class="a_dateDoc2" id="a_dateDoc2" type="text" name="dateDoc2" required
                    value="{{ $application->client['date_doc2'] ?? '' }}" min="<?=date('Y-m-d', mktime(0, 0, 0, date("m"),   date("d")+2,   date("Y")))?>">
         </div>
     </div>
@@ -117,3 +117,54 @@
         </div>
     </div>
 </div>
+<script>
+    var today = new Date();
+    var maxyear = new Date();
+    maxyear.setFullYear(maxyear.getFullYear() - 18);
+    console.log(maxyear);
+    var picker = new Pikaday({
+        field: document.getElementById('a_bornDate'),
+        format:'YYYY-MM-DD',
+        defaultDate:maxyear,
+        onSelect: function() {
+            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            startDate = maxyear;
+        },
+        maxDate: maxyear,  // maximum/latest date set to today
+        // demo only
+        position: 'top left',
+        reposition: true,
+        theme:'triangle-theme'
+
+    });
+    picker.setEndRange(maxyear);
+    var picker2 = new Pikaday({
+        field: document.getElementById('a_dateDoc'),
+        format:'YYYY-MM-DD',
+        onSelect: function() {
+            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            startDate = today;
+        },
+        maxDate: today,  // maximum/latest date set to today
+        // demo only
+        position: 'top left',
+        reposition: true,
+        theme:'triangle-theme'
+
+    });
+    var picker3 = new Pikaday({
+        field: document.getElementById('a_dateDoc2'),
+        format:'YYYY-MM-DD',
+        onSelect: function() {
+            var date = document.createTextNode(this.getMoment().format('Do MMMM YYYY') + ' ');
+            startDate = today;
+        },
+        minDate: today,  // maximum/latest date set to today
+        // demo only
+        position: 'top left',
+        reposition: true,
+        theme:'triangle-theme'
+
+    });
+
+</script>
